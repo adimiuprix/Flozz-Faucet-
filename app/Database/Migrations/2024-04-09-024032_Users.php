@@ -30,6 +30,11 @@ class Users extends Migration
                 'constraint'     => 10,
                 'default' => '0',
             ],
+            'referral_code' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
             'password' => [
                 'type'       => 'VARCHAR',
                 'constraint'     => 255,

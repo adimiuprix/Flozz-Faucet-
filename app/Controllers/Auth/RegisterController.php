@@ -3,6 +3,7 @@
 namespace App\Controllers\Auth;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use PragmaRX\Random\Random;
 
 class RegisterController extends BaseController
 {
@@ -13,6 +14,11 @@ class RegisterController extends BaseController
 
     public function register()
     {
+        $random = new Random();
+
+        // Buat instance model pengguna
+        $userModel = new UserModel();
+
         // Validasi form registrasi
         $validation = \Config\Services::validation();
         $validation->setRules([
@@ -20,7 +26,7 @@ class RegisterController extends BaseController
             'username' => 'required|is_unique[users.username]',
             'email' => 'required|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[6]',
-            'referral_code' => 'permit_empty|valid_referral_code'
+            'referral_code' => 'permit_empty'
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
@@ -29,26 +35,25 @@ class RegisterController extends BaseController
         }
 
         // Ambil data dari form
-        $username = $this->request->getPost('username');
-        $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
-        $referralCode = $this->request->getPost('referral_code');
+        $reff_by = $this->request->getPost('reffcode');
 
-        // Buat instance model pengguna
-        $userModel = new UserModel();
+        if(!is_null($reff_by)){
+            $usrReff = $userModel->where('referral_code', $reff_by)->first();
 
-        // Buat data pengguna
-        $userData = [
-            'username' => $username,
-            'email' => $email,
-            'password' => password_hash($password, PASSWORD_DEFAULT),
-            'referral_code' => $referralCode
-        ];
+            // Buat data pengguna
+            $userData = [
+                'username' => $this->request->getPost('username'),
+                'email' => $this->request->getPost('email'),
+                'referral_code' => $random->mixedcase()->size(8)->get(),
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+                'reff_by' => $usrReff !== null ? $usrReff['id'] : null,
+            ];
 
-        // Simpan data pengguna ke dalam database
-        $userModel->save($userData);
+            // Simpan data pengguna ke dalam database
+            $userModel->save($userData);
+        }
 
         // Redirect ke halaman sukses atau halaman lainnya
-        return redirect()->to('success');
+        return redirect()->to('registration');
     }
 }

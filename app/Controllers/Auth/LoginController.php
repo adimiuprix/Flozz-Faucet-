@@ -9,4 +9,8 @@ class LoginController extends BaseController
     {
         return view('auth/login');
     }
+
+    public function checkUser(){
+        
+    }
 }

@@ -9,13 +9,17 @@
                     <form action="<?= base_url('register'); ?>" method="post">
                         <div class="mb-3">
                             <label class="form-label">Username</label>
-                            <input type="text" class="form-control" name="username" id="username" aria-describedby="username">
+                            <input type="text" class="form-control" name="username">
                             <div id="username" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Email address</label>
-                            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+                            <input type="email" class="form-control" name="email">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Referral code (optional)</label>
+                            <input type="text" class="form-control" name="reffcode">
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
