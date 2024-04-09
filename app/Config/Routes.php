@@ -9,4 +9,5 @@ $routes->get('/', 'HomeController::home');
 $routes->get('about', 'AboutController::about');
 $routes->get('contact', 'ContactController::contact');
 $routes->get('registration', 'Auth\RegisterController::registUser');
+$routes->post('register', 'Auth\RegisterController::register');
 $routes->get('login', 'Auth\LoginController::loginUser');

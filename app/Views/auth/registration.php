@@ -6,15 +6,20 @@
             <div class="col-lg-6">
                 <div class="card shadow-lg p-5">
                     <h2 class="text-center mb-4">Login</h2>
-                    <form>
+                    <form action="<?= base_url('register'); ?>" method="post">
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                            <label class="form-label">Username</label>
+                            <input type="text" class="form-control" name="username" id="username" aria-describedby="username">
+                            <div id="username" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email address</label>
+                            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password">
+                            <input type="password" class="form-control" name="password" id="password">
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="remember">
