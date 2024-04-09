@@ -21,7 +21,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Total User</h5>
-                        <p class="card-text">1000</p>
+                        <p class="card-text"><?= $totUser;?></p>
                     </div>
                 </div>
             </div>
