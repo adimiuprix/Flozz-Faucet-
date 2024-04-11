@@ -47,6 +47,7 @@ class RegisterController extends BaseController
                 'referral_code' => $random->mixedcase()->size(8)->get(),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
                 'reff_by' => $usrReff !== null ? $usrReff['id'] : null,
+                'energy' => '50'
             ];
 
             // Simpan data pengguna ke dalam database

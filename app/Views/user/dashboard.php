@@ -4,39 +4,30 @@
 <!-- Sale & Revenue Start -->
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-sm-12 col-xl-4">
             <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-line fa-3x text-primary"></i>
                 <div class="ms-3">
                     <p class="mb-2">Balance</p>
-                    <h6 class="mb-0">500 TRX</h6>
+                    <h6 class="mb-0"><?= $stats['balance']; ?> TRX</h6>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-sm-12 col-xl-4">
             <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                <i class="fa fa-poo-storm fa-3x text-primary"></i>
                 <div class="ms-3">
                     <p class="mb-2">Energy</p>
-                    <h6 class="mb-0">5</h6>
+                    <h6 class="mb-0"><?= $stats['energy']; ?></h6>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 col-xl-3">
-            <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
-                <i class="fa fa-chart-area fa-3x text-primary"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Deposit</p>
-                    <h6 class="mb-0">0 TRX</h6>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-xl-3">
+        <div class="col-sm-12 col-xl-4">
             <div class="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
                 <i class="fa fa-chart-pie fa-3x text-primary"></i>
                 <div class="ms-3">
                     <p class="mb-2">Referral</p>
-                    <h6 class="mb-0">40</h6>
+                    <h6 class="mb-0"><?= $stats['reffs']; ?></h6>
                 </div>
             </div>
         </div>

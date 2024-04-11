@@ -3,6 +3,7 @@
 namespace App\Controllers\User;
 
 use App\Controllers\BaseController;
+use App\Models\UserModel;
 
 class DashboardController extends BaseController
 {
@@ -11,6 +12,15 @@ class DashboardController extends BaseController
         $session = session();
         $idUser = $session->get('id');
 
-        return view('user/dashboard');
+        $userModel = new UserModel();
+        $statUsr = $userModel->find($idUser);
+
+        $stats = [
+            'balance' => $statUsr['balance'],
+            'energy' => $statUsr['energy'],
+            'reffs' => $userModel->where('reff_by', $idUser)->countAllResults(), // Menghitung jumlah referral
+        ];
+
+        return view('user/dashboard', compact('stats'));
     }
 }

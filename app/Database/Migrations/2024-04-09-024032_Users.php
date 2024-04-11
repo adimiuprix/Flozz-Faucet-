@@ -54,6 +54,11 @@ class Users extends Migration
                 'type'       => 'TIMESTAMP',
                 'null' => true,
             ],
+            'energy' => [
+                'type'       => 'INT',
+                'constraint'     => 10,
+                'default' => '0',
+            ],
         ]);
         $this->forge->addKey('id', true);
         $this->forge->createTable('users');
