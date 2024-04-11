@@ -1,5 +1,6 @@
 <?= $this->extend('layouts/template') ?>
 <?= $this->section('content') ?>
+
 <section class="welcome-section text-center py-5">
     <div class="container">
         <h2>Welcome</h2>
@@ -7,12 +8,17 @@
         <br>
         <div class="row justify-content-center">
             <div class="col-md-6">
+                <?php if(!is_null($is_login)): ?>
+                <a href="<?= base_url('dashboard'); ?>" class="btn btn-primary btn-lg">Dashboard</a>
+                <?php else: ?>
                 <a href="<?= base_url('registration'); ?>" class="btn btn-primary btn-lg">Daftar</a>
                 <a href="<?= base_url('login'); ?>" class="btn btn-secondary btn-lg">Login</a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
 </section>
+
 <section class="stats-section py-5">
     <div class="container">
         <h2 class="text-center mb-4">Stats</h2>
@@ -44,6 +50,7 @@
         </div>
     </div>
 </section>
+
 <section class="payout-proof py-5">
     <div class="container">
         <h2 class="text-center mb-4">Statistic</h2>
@@ -69,4 +76,5 @@
         </div>
     </div>
 </section>
+
 <?= $this->endSection() ?>

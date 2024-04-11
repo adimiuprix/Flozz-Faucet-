@@ -10,6 +10,9 @@ class HomeController extends BaseController
         $userModel = new UserModel();
         $totUser = $userModel->countAll();
 
-        return view('home', compact('totUser'));
+        $session = session();
+        $is_login = $session->get('id');
+
+        return view('home', compact('totUser', 'is_login'));
     }
 }
