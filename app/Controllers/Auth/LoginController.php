@@ -41,7 +41,7 @@ class LoginController extends BaseController
     private function setUserSession($user)
     {
         $data = [
-            'id' => $user['id'],
+            'id' => $user['id_user'],
             'email' => $user['email'],
             'isLoggedIn' => true
         ];
