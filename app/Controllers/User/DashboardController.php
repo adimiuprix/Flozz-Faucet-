@@ -48,7 +48,7 @@ class DashboardController extends BaseController
         $userModel = new UserModel();
         $statUsr = $userModel->find($idUser);
 
-        return view('user/faucet');
+        return view('user/referral');
     }
 
     public function withdraw()
