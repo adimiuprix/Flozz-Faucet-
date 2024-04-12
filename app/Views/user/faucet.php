@@ -7,7 +7,7 @@
             <div class="bg-secondary rounded d-flex align-items-center justify-content-center p-4">
                 <div class="ms-3 text-center">
                     <p class="mb-2">Timer</p>
-                    <h6 class="mb-0">00:00</h6>
+                    <h6 class="mb-0"><div id="time">00:00</div></h6>
                 </div>
             </div>
         </div>
@@ -47,4 +47,32 @@
     </div>
 </div>
 
+<script>
+// Timestamps
+var unixTime = Math.floor(Date.now() / 1000);
+var claimTime = <?= $CanClaimTime; ?>;
+
+// Menghitung selisih waktu
+var difference = claimTime - unixTime;
+
+// Fungsi untuk mengonversi selisih waktu ke format countdown (00:00)
+function formatTime(seconds) {
+    var minutes = Math.floor(seconds / 60);
+    var remainingSeconds = seconds % 60;
+    return (minutes < 10 ? "0" : "") + minutes + ":" + (remainingSeconds < 10 ? "0" : "") + remainingSeconds;
+}
+
+var countdownElement = document.getElementById('time');
+
+// Timer Countdown
+var countdownInterval = setInterval(function() {
+    if (difference <= 0) {
+        clearInterval(countdownInterval);
+        countdownElement.textContent = "Ready";
+    } else {
+        countdownElement.textContent = formatTime(difference);
+        difference--;
+    }
+}, 1000);
+</script>
 <?= $this->endSection() ?>

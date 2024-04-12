@@ -15,13 +15,15 @@ class FaucetController extends BaseController
 
         $userModel = new UserModel();
         $usrdata = $userModel->find($idUser);
+        $timeNow = Carbon::now()->unix();
+        $LastClaimTime = $usrdata['last_claim'];
+        $canClaim = $LastClaimTime + 60;
 
         if(!is_null($usrdata)){
-            if ($usrdata['energy'] >= 1) {
-
+            if ($usrdata['energy'] >= 1 && $timeNow >= $canClaim) {
+                $timecd = Carbon::now()->unix();    // Cooldown time
                 $balance = $usrdata['balance']; // Check balance
                 $energy = $usrdata['energy']; // Check energy
-                $timecd = Carbon::now()->unix();    // Cooldown time
                 $reward = '50'; // Reward from faucet
                 $Lostenergy = 1; // Energy decrease
                 $newBalance = $balance + $reward; // New balance

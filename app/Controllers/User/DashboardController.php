@@ -4,6 +4,7 @@ namespace App\Controllers\User;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use Carbon\Carbon;
 
 class DashboardController extends BaseController
 {
@@ -31,10 +32,12 @@ class DashboardController extends BaseController
 
         $userModel = new UserModel();
         $statUsr = $userModel->find($idUser);
-
         $energy = $statUsr['energy'];
+        $timeNow = Carbon::now()->unix();
+        $LastClaimTime = $statUsr['last_claim'];
+        $CanClaimTime = $LastClaimTime + 60;
 
-        return view('user/faucet', compact('energy'));
+        return view('user/faucet', compact('energy', 'timeNow', 'CanClaimTime'));
     }
 
     public function referral()
