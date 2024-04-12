@@ -51,7 +51,7 @@ class Users extends Migration
                 'null' => true,
             ],
             'last_claim' => [
-                'type'       => 'TIMESTAMP',
+                'type'       => 'BIGINT',
                 'null' => true,
             ],
             'energy' => [
@@ -60,7 +60,7 @@ class Users extends Migration
                 'default' => '0',
             ],
         ]);
-        $this->forge->addKey('id', true);
+        $this->forge->addKey('id_user', true);
         $this->forge->createTable('users');
     }
 

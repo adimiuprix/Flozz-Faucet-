@@ -23,4 +23,51 @@ class DashboardController extends BaseController
 
         return view('user/dashboard', compact('stats'));
     }
+
+    public function faucet()
+    {
+        $session = session();
+        $idUser = $session->get('id');
+
+        $userModel = new UserModel();
+        $statUsr = $userModel->find($idUser);
+
+        $energy = $statUsr['energy'];
+
+        return view('user/faucet', compact('energy'));
+    }
+
+    public function referral()
+    {
+        $session = session();
+        $idUser = $session->get('id');
+
+        $userModel = new UserModel();
+        $statUsr = $userModel->find($idUser);
+
+        return view('user/faucet');
+    }
+
+    public function withdraw()
+    {
+        $session = session();
+        $idUser = $session->get('id');
+
+        $userModel = new UserModel();
+        $statUsr = $userModel->find($idUser);
+
+        return view('user/faucet');
+    }
+
+    public function setting()
+    {
+        $session = session();
+        $idUser = $session->get('id');
+
+        $userModel = new UserModel();
+        $statUsr = $userModel->find($idUser);
+
+        return view('user/faucet');
+    }
+
 }

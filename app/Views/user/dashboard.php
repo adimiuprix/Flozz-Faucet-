@@ -1,7 +1,6 @@
 <?= $this->extend('layouts/user-template') ?>
 <?= $this->section('content') ?>
 
-<!-- Sale & Revenue Start -->
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
         <div class="col-sm-12 col-xl-4">
@@ -33,7 +32,6 @@
         </div>
     </div>
 </div>
-<!-- Sale & Revenue End -->
 
 <!-- Content End -->
 <?= $this->endSection() ?>
