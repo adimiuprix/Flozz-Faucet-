@@ -3,6 +3,7 @@
 namespace App\Controllers\Auth;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use App\Models\SettingModel;
 use PragmaRX\Random\Random;
 
 class RegisterController extends BaseController
@@ -15,6 +16,8 @@ class RegisterController extends BaseController
     public function register()
     {
         $random = new Random();
+        $settingModel = new SettingModel();
+        $setEnergy = $settingModel->first();
 
         // Buat instance model pengguna
         $userModel = new UserModel();
@@ -46,8 +49,8 @@ class RegisterController extends BaseController
                 'email' => $this->request->getPost('email'),
                 'referral_code' => $random->mixedcase()->size(8)->get(),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-                'reff_by' => $usrReff !== null ? $usrReff['id'] : null,
-                'energy' => '50'
+                'reff_by' => $usrReff !== null ? $usrReff['id_user'] : null,
+                'energy' => $setEnergy['free_energy']
             ];
 
             // Simpan data pengguna ke dalam database

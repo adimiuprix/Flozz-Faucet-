@@ -1,14 +1,70 @@
 <?= $this->extend('layouts/user-template') ?>
 <?= $this->section('content') ?>
-
+<style>
+    table.table {
+        color: white;
+    }
+</style>
 <!-- Blank Start -->
 <div class="container-fluid pt-4 px-4">
-    <div class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
-        <div class="col-md-6 text-center">
-            <h3>Still Development</h3>
+    <div class="col-sm-12 col-md-6 col-xl-12 pb-3">
+        <div class="bg-secondary rounded h-100 p-4">
+            <h6 class="mb-4">Referral list</h6>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Joined date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php $counter = 1; ?>
+                        <?php if (!empty($AllReffs)): ?>
+                        <?php foreach ($AllReffs as $refs): ?>
+                        <tr>
+                            <th><?= $counter++; ?></th>
+                            <td><?= $refs['username']; ?></td>
+                            <td><?= $refs['email']; ?></td>
+                            <td><?= $refs['create_at']; ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                        <?php else: ?>
+                        <tr>
+                            <th>No record found!</th>
+                        </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-xl-12">
+        <div class="bg-secondary rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-4">
+                <h6 class="mb-0">Your referral link</h6>
+            </div>
+            <div class="d-flex mb-2">
+                <input class="form-control bg-transparent" type="text" id="urlInput" value="<?= base_url('registration/' . $reffcode);?>" readonly />
+                <button type="button" class="btn btn-primary ms-2" id="copyButton" onclick="copyText()">copy</button>
+            </div>
         </div>
     </div>
 </div>
 <!-- Blank End -->
-
+<script>
+    function copyText() {
+        const input = document.getElementById('urlInput');
+        input.select();
+        document.execCommand('copy');
+        document.getElementById('copyButton').innerText = 'copied';
+        alert('Link successfully copied.');
+        setTimeout(() => {
+            document.getElementById('copyButton').innerText = 'copy';
+        }, 2000);
+    }
+</script>
 <?= $this->endSection() ?>

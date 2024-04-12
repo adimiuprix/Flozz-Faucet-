@@ -29,6 +29,19 @@
 
     <!-- Template Stylesheet -->
     <link href="<?= base_url('public/user/css/style.css'); ?>" rel="stylesheet">
+    <style>
+        .form-control:disabled, .form-control:read-only {
+            background-color: white!important;
+            opacity: 1;
+        }
+        .authkong_captcha {
+            flex-direction: row;
+            display: flex!important;
+            align-content: space-between;
+            justify-content: center;
+            padding-bottom: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -94,6 +107,8 @@
     <script src="<?= base_url('public/user/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js'); ?>"></script>
     <!-- Template Javascript -->
     <script src="<?= base_url('public/user/js/main.js'); ?>"></script>
+    <script defer="defer" src="https://sg-captcha.authkong.com/static/challenges/js/api.js"></script>
+
 </body>
 
 </html>

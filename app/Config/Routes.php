@@ -8,7 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'HomeController::home');
 $routes->get('about', 'AboutController::about');
 $routes->get('contact', 'ContactController::contact');
-$routes->get('registration', 'Auth\RegisterController::registUser');
+$routes->get('registration/(:any)', 'Auth\RegisterController::registUser/$1');
 $routes->post('register', 'Auth\RegisterController::register');
 $routes->get('login', 'Auth\LoginController::loginUser');
 $routes->post('logincheck', 'Auth\LoginController::checkUser');

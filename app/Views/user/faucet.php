@@ -15,7 +15,7 @@
             <div class="bg-secondary rounded d-flex align-items-center justify-content-center p-4">
                 <div class="ms-3 text-center">
                     <p class="mb-2">Reward</p>
-                    <h6 class="mb-0">1 TRX</h6>
+                    <h6 class="mb-0"><?= $rewardRate;?> TRX</h6>
                 </div>
             </div>
         </div>
@@ -38,9 +38,7 @@
     <div class="pt-3">
         <div class="col-12 col-md-12 col-lg-12 mb-4 text-center">
             <form action="<?= base_url('faucet-run'); ?>" method="post">
-                <div class="text-center">
-
-                </div>
+                <div class="authkong_captcha" data-sitekey="d44c2135852fee4a5227f918121a61700f417732226995bb4084ccfcade553a1" data-theme="light"></div>
                 <button type="submit" class="btn btn-secondary btn-lg claim-button"><i class="far fa-check-circle"></i> Collect your reward</button>
             </form>
         </div>
