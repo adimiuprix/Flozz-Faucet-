@@ -138,9 +138,22 @@ class DashboardController extends BaseController
         $idUser = $session->get('id');
 
         $userModel = new UserModel();
-        $statUsr = $userModel->find($idUser);
+        $userdetail = $userModel->find($idUser);
 
-        return view('user/setting');
+        return view('user/setting', compact('userdetail'));
     }
 
+    public function updateUser(){
+        $session = session();
+        $idUser = $session->get('id');
+
+        $userModel = new UserModel();
+        $userModel->update($idUser, [
+            'email' => $this->request->getPost('email'),
+            'address' => $this->request->getPost('sendto'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+        ]);
+
+        return redirect()->back();
+    }
 }
