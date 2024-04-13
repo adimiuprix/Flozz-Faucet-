@@ -35,7 +35,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Total Paid</h5>
-                        <p class="card-text">$5000</p>
+                        <p class="card-text"><?= $totPaid;?></p>
                     </div>
                 </div>
             </div>
@@ -59,18 +59,23 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>Address</th>
+                        <th>Username</th>
                         <th>Amount</th>
+                        <th>Hash</th>
                         <th>Time</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $counter = 1; ?>
+                    <?php foreach($transacts as $trans): ?>
                     <tr>
-                        <td>1</td>
-                        <td>oleg******</td>
-                        <td>1516 coin</td>
-                        <td>20 March 2024</td>
+                        <td><?= $counter++; ?></td>
+                        <td><?= $trans['username']; ?></td>
+                        <td><?= $trans['amount']; ?></td>
+                        <td><?= $trans['hash']; ?></td>
+                        <td><?= $trans['create_at']; ?></td>
                     </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

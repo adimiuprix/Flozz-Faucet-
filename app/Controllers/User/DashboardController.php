@@ -81,6 +81,10 @@ class DashboardController extends BaseController
         $user = $userModel->find($idUser);
         $userBal = $user['balance'];
 
+        if (is_null($user['address'])) {
+            return redirect()->back();
+        }
+
         $api_key = "2e8d07098ab401dfff87033a43a3d61c8623ad75417576a334bbfe6e0c24ac57";
         $url = 'https://faucetpay.io/api/v1/send';
         $amountWd = $this->request->getPost('amount');
