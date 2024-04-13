@@ -10,7 +10,10 @@ class RegisterController extends BaseController
 {
     public function registUser()
     {
-        return view('auth/registration');
+        helper('cookie');
+
+        $reffCode = $this->request->getCookie('refflink');
+        return view('auth/registration', compact('reffCode'));
     }
 
     public function register()
@@ -58,6 +61,15 @@ class RegisterController extends BaseController
         }
 
         // Redirect ke halaman sukses atau halaman lainnya
+        return redirect()->to('login');
+    }
+
+    public function refflink($reffcode){
+        helper('cookie');
+        $expire = time() + 8400;
+        $path = "/registration";
+        setcookie('refflink', $reffcode, $expire, $path);
+
         return redirect()->to('registration');
     }
 }

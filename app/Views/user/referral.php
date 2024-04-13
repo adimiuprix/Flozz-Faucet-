@@ -28,7 +28,11 @@
                             <th><?= $counter++; ?></th>
                             <td><?= $refs['username']; ?></td>
                             <td><?= $refs['email']; ?></td>
-                            <td><?= $refs['create_at']; ?></td>
+                            <?php
+                                $carbonDate = \Carbon\Carbon::parse($refs['create_at']);
+                                $formatedDate = $carbonDate->format('d F Y');
+                            ?>
+                            <td><?= $formatedDate; ?></td>
                         </tr>
                         <?php endforeach; ?>
                         <?php else: ?>
@@ -48,7 +52,7 @@
                 <h6 class="mb-0">Your referral link</h6>
             </div>
             <div class="d-flex mb-2">
-                <input class="form-control bg-transparent" type="text" id="urlInput" value="<?= base_url('registration/' . $reffcode);?>" readonly />
+                <input class="form-control bg-transparent" type="text" id="urlInput" value="<?= base_url('reff/' . $reffcode);?>" readonly />
                 <button type="button" class="btn btn-primary ms-2" id="copyButton" onclick="copyText()">copy</button>
             </div>
         </div>

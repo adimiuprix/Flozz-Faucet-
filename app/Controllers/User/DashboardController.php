@@ -53,7 +53,7 @@ class DashboardController extends BaseController
         $userModel = new UserModel();
         $statUsr = $userModel->find($idUser);
 
-        $AllReffs = $userModel->where('reff_by', 1)->findAll();
+        $AllReffs = $userModel->where('reff_by', $idUser)->findAll();
         $reffcode = $statUsr['referral_code'];
 
         return view('user/referral', compact('AllReffs', 'reffcode'));

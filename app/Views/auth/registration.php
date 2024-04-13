@@ -18,12 +18,12 @@
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Referral code (optional)</label>
-                            <input type="text" class="form-control" name="reffcode">
-                        </div>
-                        <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control" name="password" id="password">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Referral code (optional)</label>
+                            <input type="text" class="form-control" name="reffcode" value="<?= $reffCode; ?>" readonly>
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="remember">
