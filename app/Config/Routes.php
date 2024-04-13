@@ -19,6 +19,7 @@ $routes->get('dashboard', 'User\DashboardController::index');
 $routes->get('faucet', 'User\DashboardController::faucet');
 $routes->get('referral', 'User\DashboardController::referral');
 $routes->get('withdraw', 'User\DashboardController::withdraw');
+$routes->post('withdraw-request', 'User\DashboardController::faucetpay');
 $routes->get('setting', 'User\DashboardController::setting');
 
 $routes->post('faucet-run', 'FaucetController::running');

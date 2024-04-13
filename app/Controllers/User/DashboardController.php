@@ -5,6 +5,7 @@ namespace App\Controllers\User;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
 use App\Models\SettingModel;
+use App\Models\TransactionModel;
 use Carbon\Carbon;
 
 class DashboardController extends BaseController
@@ -67,7 +68,68 @@ class DashboardController extends BaseController
         $userModel = new UserModel();
         $statUsr = $userModel->find($idUser);
 
-        return view('user/withdraw');
+        return view('user/withdraw', compact('statUsr'));
+    }
+
+    public function faucetpay(){
+        $session = session();
+        $idUser = $session->get('id');
+
+        $userModel = new UserModel();
+        $transactModel = new TransactionModel();
+
+        $user = $userModel->find($idUser);
+        $userBal = $user['balance'];
+
+        $api_key = "2e8d07098ab401dfff87033a43a3d61c8623ad75417576a334bbfe6e0c24ac57";
+        $url = 'https://faucetpay.io/api/v1/send';
+        $amountWd = $this->request->getPost('amount');
+
+        // Data for send
+        $data = [
+            'api_key' => $api_key,
+            'amount' => $amountWd,
+            'to' => $this->request->getPost('address'),
+            'currency' => 'TRX'
+        ];
+
+        if($userBal >= 1){
+            $curl = curl_init();
+            curl_setopt($curl, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+            // Execution and get response
+            $response = curl_exec($curl);
+
+            if ($response === false) {
+                $error_message = curl_error($curl);
+                // Handle error
+                echo "Curl error: " . $error_message;
+            } else {
+                // Decode respons JSON
+                $result = json_decode($response, true);
+                $newBalance = $userBal - $amountWd;
+
+                $data = [
+                    'user' => $idUser,
+                    'hash' => $result['payout_user_hash'],
+                    'amount' => $amountWd,
+                    'type' => 'Withdraw'
+                ];
+                $transactModel->insert($data);
+
+                $userModel->update($idUser, [
+                    'balance' => $newBalance,
+                ]);
+            }
+
+            // Close connection
+            curl_close($curl);
+        }
+
+        return redirect()->back();
     }
 
     public function setting()

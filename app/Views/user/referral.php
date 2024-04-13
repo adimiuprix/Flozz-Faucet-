@@ -7,7 +7,7 @@
 </style>
 <!-- Blank Start -->
 <div class="container-fluid pt-4 px-4">
-    <div class="col-sm-12 col-md-6 col-xl-12 pb-3">
+    <div class="col-sm-12 col-md-12 col-xl-12 pb-3">
         <div class="bg-secondary rounded h-100 p-4">
             <h6 class="mb-4">Referral list</h6>
             <div class="table-responsive">
@@ -37,7 +37,7 @@
                         <?php endforeach; ?>
                         <?php else: ?>
                         <tr>
-                            <th>No record found!</th>
+                            <td colspan="4" class="text-center">No record found!</td>
                         </tr>
                         <?php endif; ?>
                     </tbody>
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <div class="col-sm-12 col-md-6 col-xl-12">
+    <div class="col-sm-12 col-md-12 col-xl-12">
         <div class="bg-secondary rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">Your referral link</h6>

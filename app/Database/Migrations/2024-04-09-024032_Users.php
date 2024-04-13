@@ -59,6 +59,12 @@ class Users extends Migration
                 'constraint'     => 10,
                 'default' => '0',
             ],
+            'address' => [
+                'type'       => 'VARCHAR',
+                'constraint'     => 255,
+                'null' => true,
+            ],
+            'create_at DATETIME DEFAULT CURRENT_TIMESTAMP',
         ]);
         $this->forge->addKey('id_user', true);
         $this->forge->createTable('users');

@@ -5,8 +5,9 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
 use App\Models\SettingModel;
-
+use App\Models\TransactionModel;
 use Carbon\Carbon;
+use PragmaRX\Random\Random;
 
 class FaucetController extends BaseController
 {
@@ -14,9 +15,10 @@ class FaucetController extends BaseController
     {
         $session = session();
         $idUser = $session->get('id');
-
+        $random = new Random();
+        $string = $random->lowercase()->size(40)->get();
         $userModel = new UserModel();
-
+        $transactModel = new TransactionModel();
         $settingModel = new SettingModel();
         $getReward = $settingModel->first();
 
@@ -61,6 +63,14 @@ class FaucetController extends BaseController
                         'last_claim' => $timecd,
                         'energy' => $newEnergy
                     ]);
+
+                    $data = [
+                        'user' => $idUser,
+                        'hash' => $string,
+                        'amount' => $reward,
+                        'type' => 'Claim'
+                    ];
+                    $transactModel->insert($data);    
                 }
             } else {
                 return redirect()->back();
