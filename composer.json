@@ -13,6 +13,7 @@
         "php": "^8.1",
         "codeigniter4/framework": "^4.0",
         "nesbot/carbon": "^3.2",
+        "phpmailer/phpmailer": "^6.9",
         "pragmarx/random": "^0.2.2"
     },
     "require-dev": {
