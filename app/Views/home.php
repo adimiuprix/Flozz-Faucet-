@@ -43,7 +43,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Online</h5>
-                        <p class="card-text">Since Aprill 2024</p>
+                        <p class="card-text">Since 14 Aprill 2024</p>
                     </div>
                 </div>
             </div>
