@@ -62,6 +62,7 @@
                         <th>Username</th>
                         <th>Amount</th>
                         <th>Hash</th>
+                        <th>Type Transation</th>
                         <th>Time</th>
                     </tr>
                 </thead>
@@ -73,6 +74,7 @@
                         <td><?= $trans['username']; ?></td>
                         <td><?= $trans['amount']; ?></td>
                         <td><?= $trans['hash']; ?></td>
+                        <td><?= $trans['type']; ?></td>
                         <td><?= $trans['create_at']; ?></td>
                     </tr>
                     <?php endforeach; ?>

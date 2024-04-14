@@ -72,7 +72,7 @@ class FaucetController extends BaseController
                     ];
                     $transactModel->insert($data);
 
-                    $this->RewardReferrer($usrdata, $reward);
+                    $this->RewardReferrer($usrdata, $reward, $string);
 
                 }
             } else {
@@ -83,8 +83,9 @@ class FaucetController extends BaseController
         return redirect()->back();
     }
 
-    public function RewardReferrer($usrdata, $reward){
+    public function RewardReferrer($usrdata, $reward, $string){
         $userModel = new UserModel();
+        $transactModel = new TransactionModel();
 
         $downline = $usrdata['reff_by'];
         $upline = $userModel->where('id_user', $downline)->first();
@@ -93,6 +94,14 @@ class FaucetController extends BaseController
         $userModel->update($downline, [
             'balance' => $newUplineBal,
         ]);
+
+        $data = [
+            'user' => $downline,
+            'hash' => $string,
+            'amount' => $reward,
+            'type' => 'Bonus'
+        ];
+        $transactModel->insert($data);
 
         return true;
     }

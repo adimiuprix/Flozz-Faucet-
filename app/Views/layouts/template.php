@@ -10,7 +10,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="<?= base_url('/'); ?>">
-                    <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="30" class="d-inline-block align-top">
+                    <img src="<?= base_url('public/user/img/logo.png'); ?>" alt="Logo" width="auto" height="35" class="d-inline-block align-top">
                     FlozzFaucet
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
