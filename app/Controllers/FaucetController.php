@@ -70,7 +70,10 @@ class FaucetController extends BaseController
                         'amount' => $reward,
                         'type' => 'Claim'
                     ];
-                    $transactModel->insert($data);    
+                    $transactModel->insert($data);
+
+                    $this->RewardReferrer($usrdata, $reward);
+
                 }
             } else {
                 return redirect()->back();
@@ -78,5 +81,19 @@ class FaucetController extends BaseController
 
         }
         return redirect()->back();
+    }
+
+    public function RewardReferrer($usrdata, $reward){
+        $userModel = new UserModel();
+
+        $downline = $usrdata['reff_by'];
+        $upline = $userModel->where('id_user', $downline)->first();
+        $uplineBal = $upline['balance'];
+        $newUplineBal = $uplineBal + $reward;
+        $userModel->update($downline, [
+            'balance' => $newUplineBal,
+        ]);
+
+        return true;
     }
 }
