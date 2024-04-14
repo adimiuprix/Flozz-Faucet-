@@ -72,8 +72,10 @@ class FaucetController extends BaseController
                     ];
                     $transactModel->insert($data);
 
-                    $this->RewardReferrer($usrdata, $reward, $string);
-
+                    $downline = $usrdata['reff_by'];
+                    if(!is_null($downline)){
+                        $this->RewardReferrer($usrdata, $reward, $string);
+                    };
                 }
             } else {
                 return redirect()->back();
