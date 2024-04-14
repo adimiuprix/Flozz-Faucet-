@@ -75,7 +75,11 @@
                         <td><?= $trans['amount']; ?></td>
                         <td><?= $trans['hash']; ?></td>
                         <td><?= $trans['type']; ?></td>
-                        <td><?= $trans['create_at']; ?></td>
+                        <?php
+                            $carbonDate = \Carbon\Carbon::parse($trans['create_at']);
+                            $timeAgo = $carbonDate->diffForHumans();
+                        ?>
+                        <td><?= $timeAgo; ?></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

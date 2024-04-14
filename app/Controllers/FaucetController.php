@@ -74,7 +74,7 @@ class FaucetController extends BaseController
 
                     $downline = $usrdata['reff_by'];
                     if(!is_null($downline)){
-                        $this->RewardReferrer($usrdata, $reward, $string);
+                        $this->RewardReferrer($usrdata, $reward);
                     };
                 }
             } else {
@@ -85,7 +85,10 @@ class FaucetController extends BaseController
         return redirect()->back();
     }
 
-    public function RewardReferrer($usrdata, $reward, $string){
+    public function RewardReferrer($usrdata, $reward){
+        $random = new Random();
+        $hashBonus = $random->lowercase()->size(40)->get();
+
         $userModel = new UserModel();
         $transactModel = new TransactionModel();
 
@@ -99,7 +102,7 @@ class FaucetController extends BaseController
 
         $data = [
             'user' => $downline,
-            'hash' => $string,
+            'hash' => $hashBonus,
             'amount' => $reward,
             'type' => 'Bonus'
         ];
