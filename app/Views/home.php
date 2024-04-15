@@ -3,8 +3,8 @@
 
 <section class="welcome-section text-center py-5">
     <div class="container">
-        <h2>Welcome</h2>
-        <p class="lead">Selamat datang di FlozzFaucet, langkah tepat untuk pengalaman crypto anda. Silakan daftar atau login untuk melanjutkan.</p>
+        <h2 class="title-site">Welcome</h2>
+        <p class="lead">Selamat datang di FlozzFaucet, langkah tepat untuk pengalaman crypto anda.</p>
         <br>
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -51,39 +51,51 @@
     </div>
 </section>
 
-<section class="payout-proof py-5">
+<section class="team section">
     <div class="container">
-        <h2 class="text-center mb-4">Statistic</h2>
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Username</th>
-                        <th>Amount</th>
-                        <th>Hash</th>
-                        <th>Type Transation</th>
-                        <th>Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $counter = 1; ?>
-                    <?php foreach($transacts as $trans): ?>
-                    <tr>
-                        <td><?= $counter++; ?></td>
-                        <td><?= $trans['username']; ?></td>
-                        <td><?= $trans['amount']; ?></td>
-                        <td><?= $trans['hash']; ?></td>
-                        <td><?= $trans['type']; ?></td>
-                        <?php
-                            $carbonDate = \Carbon\Carbon::parse($trans['create_at']);
-                            $timeAgo = $carbonDate->diffForHumans();
-                        ?>
-                        <td><?= $timeAgo; ?></td>
-                    </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+        <div class="col-12">
+            <div class="section-title">
+                <div class="text-center">
+                    <h2 class="wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">Statistics &amp; Payment Proofs!</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Username</th>
+                                    <th>Amount</th>
+                                    <th>Hash</th>
+                                    <th>Type Transation</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $counter = 1; ?>
+                                <?php foreach($transacts as $trans): ?>
+                                <tr>
+                                    <td><?= $counter++; ?></td>
+                                    <td><?= $trans['username']; ?></td>
+                                    <td><?= $trans['amount']; ?></td>
+                                    <td><?= $trans['hash']; ?></td>
+                                    <td><?= $trans['type']; ?></td>
+                                    <?php
+                                        $carbonDate = \Carbon\Carbon::parse($trans['create_at']);
+                                        $timeAgo = $carbonDate->diffForHumans();
+                                    ?>
+                                    <td><?= $timeAgo; ?></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
