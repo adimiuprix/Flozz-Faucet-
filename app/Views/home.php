@@ -86,9 +86,9 @@
                                     <td><?= $trans['type']; ?></td>
                                     <?php
                                         $carbonDate = \Carbon\Carbon::parse($trans['create_at']);
-                                        $timeAgo = $carbonDate->diffForHumans();
+                                        $formatedDate = $carbonDate->format('d F Y');
                                     ?>
-                                    <td><?= $timeAgo; ?></td>
+                                    <td><?= $formatedDate; ?></td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>
