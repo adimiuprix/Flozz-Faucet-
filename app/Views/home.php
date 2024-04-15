@@ -3,8 +3,8 @@
 
 <section class="welcome-section text-center py-5">
     <div class="container">
-        <h2 class="title-site">Welcome</h2>
-        <p class="lead">Selamat datang di FlozzFaucet, langkah tepat untuk pengalaman crypto anda.</p>
+        <h2 class="title-site">Welcome to Flozzcet</h2>
+        <p class="lead">Welcome to FlozzFaucet, the right step for your crypto experience.</p>
         <br>
         <div class="row justify-content-center">
             <div class="col-md-6">
