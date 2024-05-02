@@ -27,6 +27,10 @@ class DashboardController extends BaseController
         return view('user/dashboard', compact('stats'));
     }
 
+    public function topup(){
+        return view('user/topup');
+    }
+
     public function faucet()
     {
         $session = session();

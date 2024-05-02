@@ -12,6 +12,7 @@ img.logo-sidebar {
         </a>
         <div class="navbar-nav w-100">
             <a href="<?= base_url('dashboard'); ?>" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="<?= base_url('topup'); ?>" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Topup</a>
             <a href="<?= base_url('faucet'); ?>" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Faucet</a>
             <a href="<?= base_url('referral'); ?>" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Referrals</a>
             <a href="<?= base_url('withdraw'); ?>" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Withdraw</a>
