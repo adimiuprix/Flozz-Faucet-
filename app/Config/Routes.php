@@ -23,7 +23,7 @@ $routes->get('recovery', 'Auth\RecoveryController::setPassword/$1');
 $routes->post('recpass', 'Auth\RecoveryController::recoveryPassword');
 
 $routes->get('dashboard', 'User\DashboardController::index');
-$routes->get('topup', 'User\DashboardController::topup');
+$routes->get('offerwall', 'User\DashboardController::offerwall');
 $routes->get('faucet', 'User\DashboardController::faucet');
 $routes->get('referral', 'User\DashboardController::referral');
 $routes->get('withdraw', 'User\DashboardController::withdraw');
