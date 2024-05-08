@@ -7,6 +7,7 @@ use App\Models\UserModel;
 use App\Models\SettingModel;
 use App\Models\TransactionModel;
 use Carbon\Carbon;
+use PragmaRX\Random\Random;
 
 class DashboardController extends BaseController
 {
@@ -76,6 +77,9 @@ class DashboardController extends BaseController
     }
 
     public function faucetpay(){
+        $random = new Random();
+        $string = $random->lowercase()->size(40)->get();
+
         $session = session();
         $idUser = $session->get('id');
 
@@ -89,7 +93,7 @@ class DashboardController extends BaseController
             return redirect()->back();
         }
 
-        $api_key = "2e8d07098ab401dfff87033a43a3d61c8623ad75417576a334bbfe6e0c24ac57";
+        $api_key = "eb1813c610a6f404ebd03bc1251652866ec31045ffa21ab8810367352749b45d";
         $url = 'https://faucetpay.io/api/v1/send';
         $amountWd = $this->request->getPost('amount');
         $amountFloat = (float)$amountWd;
@@ -103,7 +107,7 @@ class DashboardController extends BaseController
             'currency' => 'TRX'
         ];
 
-        if($userBal >= 1){
+        if($userBal >= 2000000){
             $curl = curl_init();
             curl_setopt($curl, CURLOPT_URL, $url);
             curl_setopt($curl, CURLOPT_POST, true);
@@ -120,14 +124,18 @@ class DashboardController extends BaseController
             } else {
                 // Decode respons JSON
                 $result = json_decode($response, true);
-                $newBalance = $userBal - $amountWd;
+                
+                $satoshiAmount = $amountWd * 100000000;
+                
+                $newBalance = $userBal - $satoshiAmount;
 
                 $data = [
                     'user' => $idUser,
-                    'hash' => $result['payout_user_hash'],
-                    'amount' => $amountWd,
+                    'hash' => $string,
+                    'amount' => $satoshiAmount,
                     'type' => 'Withdraw'
                 ];
+
                 $transactModel->insert($data);
 
                 $userModel->update($idUser, [

@@ -23,6 +23,8 @@ class HomeController extends BaseController
 
         $transacts = $transactModel
             ->join('users', 'users.id_user = transactions.user')
+            ->orderBy('id', 'DESC')
+            ->limit(10)
             ->findAll();
 
         return view('home', compact('totUser', 'totPaid', 'is_login', 'transacts'));
