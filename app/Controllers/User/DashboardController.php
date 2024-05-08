@@ -19,7 +19,7 @@ class DashboardController extends BaseController
         $statUsr = $userModel->find($idUser);
 
         $stats = [
-            'balance' => $statUsr['balance'],
+            'balance' => number_format($statUsr['balance'] / 100000000, 8),
             'energy' => $statUsr['energy'],
             'reffs' => $userModel->where('reff_by', $idUser)->countAllResults(), // Menghitung jumlah referral
         ];
@@ -39,7 +39,7 @@ class DashboardController extends BaseController
         $userModel = new UserModel();
         $settingModel = new SettingModel();
         $getReward = $settingModel->first();
-        $rewardRate = $getReward['reward_rate'];
+        $rewardRate = number_format($getReward['reward_rate'] / 100000000, 8);
 
         $statUsr = $userModel->find($idUser);
         $energy = $statUsr['energy'];
@@ -92,11 +92,13 @@ class DashboardController extends BaseController
         $api_key = "2e8d07098ab401dfff87033a43a3d61c8623ad75417576a334bbfe6e0c24ac57";
         $url = 'https://faucetpay.io/api/v1/send';
         $amountWd = $this->request->getPost('amount');
+        $amountFloat = (float)$amountWd;
+        $satoshiValue = $amountFloat * 100000000;
 
         // Data for send
         $data = [
             'api_key' => $api_key,
-            'amount' => $amountWd,
+            'amount' => $satoshiValue,
             'to' => $this->request->getPost('address'),
             'currency' => 'TRX'
         ];
