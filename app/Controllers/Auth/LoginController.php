@@ -12,6 +12,9 @@ class LoginController extends BaseController
     }
 
     public function checkUser(){
+        $request = service('request');
+        $userIP = $request->getIPAddress();
+
         $userModel = new UserModel();
 
         $rules = [
@@ -27,6 +30,12 @@ class LoginController extends BaseController
         $password = $this->request->getVar('password');
 
         $user = $userModel->where('email', $email)->first();
+
+        // Jika alamat IP null, masukkan nilai IP baru
+        if ($user && $user['ip_address'] === null) {
+            $user['ip_address'] = $userIP;
+            $userModel->save($user);
+        }
 
         if (!$user || !password_verify($password, $user['password'])) {
             return redirect()->back()->to('login')->with('error', 'Invalid email or password');

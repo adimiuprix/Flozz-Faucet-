@@ -5,7 +5,13 @@
         <div class="row justify-content-center align-items-center h-100">
             <div class="col-lg-6">
                 <div class="card shadow-lg p-5">
-                    <h2 class="text-center mb-4">Login</h2>
+                    <h2 class="text-center mb-4">Registration</h2>
+                    <?php if (session()->has('error')): ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?= session('error') ?>
+                        </div>
+                    <?php endif ?>
+
                     <form action="<?= base_url('register'); ?>" method="post">
                         <div class="mb-3">
                             <label class="form-label">Username</label>

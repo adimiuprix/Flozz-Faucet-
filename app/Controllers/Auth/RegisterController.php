@@ -18,6 +18,7 @@ class RegisterController extends BaseController
 
     public function register()
     {
+        $request = service('request');
         $random = new Random();
         $settingModel = new SettingModel();
         $setEnergy = $settingModel->first();
@@ -40,6 +41,17 @@ class RegisterController extends BaseController
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         }
 
+        // Ambil IP
+        $userIP = $request->getIPAddress();
+
+        // Cek apakah ada pengguna dengan alamat IP yang sama dalam database
+        $existingUser = $userModel->where('ip_address', $userIP)->first();
+
+        // Jika ada pengguna dengan alamat IP yang sama, tolak registrasi
+        if ($existingUser) {
+            return redirect()->back()->withInput()->with('error', 'You cant create multiple account! 😈.');
+        }
+
         // Ambil data dari form
         $reff_by = $this->request->getPost('reffcode');
 
@@ -48,6 +60,7 @@ class RegisterController extends BaseController
 
             // Buat data pengguna
             $userData = [
+                'ip_address' => $userIP,
                 'username' => $this->request->getPost('username'),
                 'email' => $this->request->getPost('email'),
                 'referral_code' => $random->mixedcase()->size(8)->get(),
@@ -61,7 +74,7 @@ class RegisterController extends BaseController
         }
 
         // Redirect ke halaman sukses atau halaman lainnya
-        return redirect()->to('login');
+        return redirect()->to('login')->with('fastmsg', 'Registration successful, please log in');
     }
 
     public function refflink($reffcode){
