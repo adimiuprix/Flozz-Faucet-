@@ -47,8 +47,9 @@ class DashboardController extends BaseController
         $timeNow = Carbon::now()->unix();
         $LastClaimTime = $statUsr['last_claim'];
         $CanClaimTime = $LastClaimTime + 60;
+        $siteKey = env('Auth_Kong_sitekey');
 
-        return view('user/faucet', compact('energy', 'rewardRate', 'timeNow', 'CanClaimTime'));
+        return view('user/faucet', compact('energy', 'rewardRate', 'timeNow', 'CanClaimTime', 'siteKey'));
     }
 
     public function referral()

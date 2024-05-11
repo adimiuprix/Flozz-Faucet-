@@ -33,7 +33,7 @@ class FaucetController extends BaseController
 
             // Data to be sent
             $data = [
-                'secret' => '3273b8acdab15bf53fb0e29257564ed0460b0bf20ac4f594b2adc9e1a9a04959', // Replace with your private key
+                'secret' => env('Auth_Kong_secret'), // Replace with your private key
                 'response' => $_POST['captcha-response'] // Captcha response from the frontend
             ];
 
