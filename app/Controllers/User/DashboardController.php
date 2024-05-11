@@ -94,7 +94,7 @@ class DashboardController extends BaseController
             return redirect()->back();
         }
 
-        $api_key = "eb1813c610a6f404ebd03bc1251652866ec31045ffa21ab8810367352749b45d";
+        $api_key = env('FaucetPay_Api_key');
         $url = 'https://faucetpay.io/api/v1/send';
         $amountWd = $this->request->getPost('amount');
         $amountFloat = (float)$amountWd;
@@ -124,10 +124,10 @@ class DashboardController extends BaseController
                 echo "Curl error: " . $error_message;
             } else {
                 // Decode respons JSON
-                $result = json_decode($response, true);
-                
+                json_decode($response, true);
+
                 $satoshiAmount = $amountWd * 100000000;
-                
+
                 $newBalance = $userBal - $satoshiAmount;
 
                 $data = [

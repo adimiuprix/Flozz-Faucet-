@@ -69,3 +69,5 @@ database.default.port = 3306
 # logger.threshold = 4
 # Auth_Kong_sitekey= '239e6fbe2e1432a5bc73f4c4c843bab4096ba11af907e5bce00c362b0bdc35c7'
 # Auth_Kong_secret= 'b1ac267ebf8a8a2918ce049e6e89a142ba4a637e25ae64ffa223e671e24eafed'
+
+# FaucetPay_Api_key = 'eb1813c610a6f404ebd03bc1251652866ec31045ffa21ab8810367352749b45d'
