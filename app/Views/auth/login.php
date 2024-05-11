@@ -28,10 +28,12 @@
                             <label class="form-label">Password</label>
                             <input type="password" name="password" class="form-control">
                         </div>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="remember">
-                            <label class="form-check-label" for="remember">Remember me</label>
+                        <div class="pt-3">
+                            <div class="col-12 col-md-12 col-lg-12 mb-4 text-center">
+                                <div class="authkong_captcha" data-sitekey="<?= $siteKey; ?>" data-theme="light"></div>
+                            </div>
                         </div>
+
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                     <div class="mt-3 text-center">

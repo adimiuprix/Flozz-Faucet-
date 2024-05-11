@@ -8,7 +8,8 @@ class LoginController extends BaseController
 {
     public function loginUser(): string
     {
-        return view('auth/login');
+        $siteKey = env('Auth_Kong_sitekey');
+        return view('auth/login', compact('siteKey'));
     }
 
     public function checkUser(){
@@ -40,6 +41,29 @@ class LoginController extends BaseController
         if (!$user || !password_verify($password, $user['password'])) {
             return redirect()->back()->to('login')->with('error', 'Invalid email or password');
         }
+
+        // AuthKong verification API URL
+        $url = "https://verify.authkong.com/";
+
+        // Data to be sent
+        $data = [
+            'secret' => env('Auth_Kong_secret'), // Replace with your private key
+            'response' => $_POST['captcha-response'] // Captcha response from the frontend
+        ];
+
+        // Use cURL for the API request
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        // Decode and use the response
+        $result = json_decode($response, true);
+        if ($result['success'] == false) {
+            return redirect()->back()->withInput()->with('error', 'You have to resolve captcha to login! 😊.');
+        };
 
         // Set session
         $this->setUserSession($user);
