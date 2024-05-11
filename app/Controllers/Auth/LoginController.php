@@ -61,6 +61,7 @@ class LoginController extends BaseController
 
         // Decode and use the response
         $result = json_decode($response, true);
+
         if ($result['success'] == false) {
             return redirect()->back()->withInput()->with('error', 'You have to resolve captcha to login! 😊.');
         };
