@@ -4,14 +4,14 @@
 <section class="welcome-section text-center py-5">
     <div class="container">
         <h2 class="title-site">Welcome to Flozzcet</h2>
-        <p class="lead">Welcome to FlozzFaucet, the right step for your crypto experience.</p>
+        <p class="lead">Flozzcet is a faucet platform that allows you to earn crypto with minimal effort.</p>
         <br>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <?php if(!is_null($is_login)): ?>
                 <a href="<?= base_url('dashboard'); ?>" class="btn btn-primary btn-lg">Dashboard</a>
                 <?php else: ?>
-                <a href="<?= base_url('registration'); ?>" class="btn btn-primary btn-lg">Daftar</a>
+                <a href="<?= base_url('registration'); ?>" class="btn btn-primary btn-lg">Register</a>
                 <a href="<?= base_url('login'); ?>" class="btn btn-secondary btn-lg">Login</a>
                 <?php endif; ?>
             </div>
@@ -43,7 +43,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Online</h5>
-                        <p class="card-text">Since 14 Aprill 2024</p>
+                        <p class="card-text">Since 09 May 2024</p>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                                 <tr>
                                     <td><?= $counter++; ?></td>
                                     <td><?= $trans['username']; ?></td>
-                                    <td><?= $trans['amount']; ?></td>
+                                    <td><?= number_format($trans['amount'] / 100000000, 8); ?></td>
                                     <td><?= $trans['hash']; ?></td>
                                     <td><?= $trans['type']; ?></td>
                                     <?php

@@ -32,7 +32,7 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                     <div class="mt-3 text-center">
-                        <p>Sudah punya akun? <a href="<?= base_url('login'); ?>">Login disini</a></p>
+                        <p>Already have an account? <a href="<?= base_url('login'); ?>">Login here</a></p>
                     </div>
                 </div>
             </div>

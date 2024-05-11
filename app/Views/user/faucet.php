@@ -31,14 +31,14 @@
 
     <div class="pt-3">
         <div class="alert alert-info text-center">
-            Follow our channel for latest announcements <a href="http://">@grouptele</a>
+            Follow our channel for latest announcements <a href="https://t.me/flozzcet_group">@Flozzcet Group</a>
         </div>
     </div>
 
     <div class="pt-3">
         <div class="col-12 col-md-12 col-lg-12 mb-4 text-center">
             <form action="<?= base_url('faucet-run'); ?>" method="post">
-                <div class="authkong_captcha" data-sitekey="f01f5963c89f8263362492293fab4b24df47aa478826ae3d086d2bec7472eed0" data-theme="light"></div>
+                <div class="authkong_captcha" data-sitekey="239e6fbe2e1432a5bc73f4c4c843bab4096ba11af907e5bce00c362b0bdc35c7" data-theme="light"></div>
                 <button type="submit" class="btn btn-secondary btn-lg claim-button"><i class="far fa-check-circle"></i> Collect your reward</button>
             </form>
         </div>

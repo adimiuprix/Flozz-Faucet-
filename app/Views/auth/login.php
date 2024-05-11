@@ -22,8 +22,8 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                     <div class="mt-3 text-center">
-                        <p>Belum punya akun? <a href="<?= base_url('registration'); ?>">daftar disini</a></p>
-                        <p>Lupa password? <a href="<?= base_url('forget-password'); ?>">klik di sini</a></p>
+                        <p>Don't have an account yet? <a href="<?= base_url('registration'); ?>">signup here</a></p>
+                        <p>Forgot the password? <a href="<?= base_url('forget-password'); ?>">click here</a></p>
                     </div>
                 </div>
             </div>

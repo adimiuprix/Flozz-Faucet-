@@ -13,8 +13,8 @@
                 <div class="form-text text-white">Set your address from <a href="https://faucetpay.io/" target="_blank">faucetpay.io</a>, if you still not set, you can click <a href="<?= base_url('setting'); ?>">here</a> for setting that.</div>
             </div>
             <div class="mb-3">
-                <label class="form-label">Amount</label>
-                <input type="number" name="amount" value="0" class="form-control" step="any">
+                <label class="form-label">Amount | min. 0.02 TRX</label>
+                <input type="number" name="amount" value="0.02" class="form-control" step="any">
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-primary">withdraw</button>

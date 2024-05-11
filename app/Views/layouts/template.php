@@ -4,7 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="<?= base_url('public/assets/css/bootstrap.css');?>" rel="stylesheet">
-        <title>FlozzFaucet</title>
+        <meta content="fucate, highest paying crypto faucet, login coinpayu, faucetpay withdrawal, shib faucets, faucet earner, faucetpay application, Claim free Crypto easy, Claim Faucet" name="keywords">
+        <meta content="Flozzcet is a faucet platform that allows you to earn crypto with minimal effort." name="description">
+        <title>Flozzcet</title>
         <style>
         nav.nav-main {
             background-color: #141142;
@@ -50,8 +52,7 @@
         <nav class="navbar navbar-expand-lg navbar-light nav-main">
             <div class="container">
                 <a class="navbar-brand" href="<?= base_url('/'); ?>">
-                    <img src="<?= base_url('public/user/img/logo.png'); ?>" alt="Logo" width="auto" height="35" class="d-inline-block align-top">
-                    FlozzFaucet
+                    <img src="<?= base_url('public/assets/images/logo.png'); ?>" alt="Logo" width="auto" height="50" class="d-inline-block align-top">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

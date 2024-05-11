@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <title>Flozzcet</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="fucate, highest paying crypto faucet, login coinpayu, faucetpay withdrawal, shib faucets, faucet earner, faucetpay application, Claim free Crypto easy, Claim Faucet" name="keywords">
+    <meta content="Flozzcet is a faucet platform that allows you to earn crypto with minimal effort." name="description">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -65,7 +65,7 @@
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                        <img class="rounded-circle me-lg-2" src="<?= base_url('public/user/img/user.jpg'); ?>" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle me-lg-2" src="<?= base_url('public/user/img/user.png'); ?>" alt="" style="width: 40px; height: 40px;">
                         <span class="d-none d-lg-inline-flex">User</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
@@ -82,7 +82,7 @@
                 <div class="bg-secondary rounded-top p-4">
                     <div class="row">
                         <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
+                            &copy; Copyright © 2024. <a href="#">Flozzcet</a>, All Right Reserved. 
                         </div>
                     </div>
                 </div>
