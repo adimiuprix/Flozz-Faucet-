@@ -12,7 +12,10 @@ use PragmaRX\Random\Random;
 class RecoveryController extends BaseController
 {
     public function forget() {
-        return view('auth/forget');
+        $session = session();
+        $is_login = $session->get('id');
+
+        return view('auth/forget', compact('is_login'));
     }
 
     public function sendResetLink() {
@@ -82,8 +85,12 @@ class RecoveryController extends BaseController
     }
 
     public function setPassword($find){
+        $session = session();
+        $is_login = $session->get('id');
+
         $idUser = $find['id_user'];
-        return view('auth/recovery', compact('idUser'));
+
+        return view('auth/recovery', compact('idUser', 'is_login'));
     }
 
     public function recoveryPassword(){

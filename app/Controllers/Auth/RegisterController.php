@@ -13,7 +13,11 @@ class RegisterController extends BaseController
         helper('cookie');
 
         $reffCode = $this->request->getCookie('refflink');
-        return view('auth/registration', compact('reffCode'));
+
+        $session = session();
+        $is_login = $session->get('id');
+
+        return view('auth/registration', compact('reffCode', 'is_login'));
     }
 
     public function register()

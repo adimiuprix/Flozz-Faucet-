@@ -8,8 +8,11 @@ class LoginController extends BaseController
 {
     public function loginUser(): string
     {
+        $session = session();
+        $is_login = $session->get('id');
+
         $siteKey = env('Auth_Kong_sitekey');
-        return view('auth/login', compact('siteKey'));
+        return view('auth/login', compact('siteKey', 'is_login'));
     }
 
     public function checkUser(){

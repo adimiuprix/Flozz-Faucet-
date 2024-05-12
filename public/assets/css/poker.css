@@ -1,0 +1,303 @@
+.pl-2, .px-2 {
+    padding-left: .5rem!important;
+}
+.pr-2, .px-2 {
+    padding-right: .5rem!important;
+}
+.pt-0, .py-0 {
+    padding-top: 0!important;
+}
+.poker_game_container {
+	padding: 5px 0px 15px;
+	width: 100%;
+}
+.game_poker_payout_tbl {
+    margin: 10px auto;
+    padding: 10px;
+    background: #213743;
+    border-radius: 5px;
+	max-width: 690px;
+}
+.game_poker_payout_tbl .input_group {
+	margin: 2.5px;
+	padding: 3px 10px;
+	background: #0f212e;
+	border-radius: 3px;
+}
+.game_poker_payout_tbl .input_group .text {
+	font-size: 12px;
+    text-transform: uppercase;
+    padding: 5px 0px;
+	color: #FFF;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.game_poker_board {
+    margin: 10px 0px;
+    padding: 0px 5px;
+    border-radius: 5px;
+	display: flex; flex-wrap: nowrap;
+}
+.poker_card {
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+    height: 143px;
+    width: 100px;
+    margin: 15px auto;
+	transition-duration: 200ms;
+}
+.poker_card:hover {
+    transform: translateY(-0.2rem);
+}
+
+
+@media (max-width: 768px) {
+	.poker_card {
+		height: 106px;
+		width: 75px;
+	}
+}
+@media (max-width: 500px) {
+	.poker_card {
+		height: 88px;
+		width: 62px;
+	}
+}
+@media (max-width: 400px) {
+	.poker_card {
+		height: 70px;
+		width: 50px;
+	}
+}
+.poker_card .poker_card_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.poker_card .poker_card_inner.flipped{
+    transform: rotateY(180deg);
+}
+.poker_card .poker_card_inner.heart p,  .poker_card .poker_card_inner.diamond p{
+    color: #E9113C!important;
+}
+.poker_card .front {
+    width: 100%;
+    height: 100%;
+    background: #FFF;
+    padding: 20px 10px;
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    position: absolute;
+    backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+}
+.poker_card .front p {
+    width: 40px;
+    font-size: 40px;
+    text-align: center;
+    line-height: 25px;
+    margin: 0px;
+	color: #1a2c38!important;
+}
+.poker_card .front i {
+    font-size: 22px;
+    line-height: 27px;
+}
+@media (max-width: 768px) {
+	.poker_card .front{
+		padding: 10px 5px;
+	}
+	.poker_card .front p {
+		width: 30px;
+		font-size: 25px;
+		line-height: 15px;
+	}
+	.poker_card .front i {
+		font-size: 17px;
+		line-height: 20px;
+		margin-top: 5px;
+	}
+}
+@media (max-width: 500px) {
+	.poker_card .front{
+		padding: 10px 5px;
+	}
+	.poker_card .front p {
+		width: 30px;
+		font-size: 25px;
+		line-height: 15px;
+	}
+	.poker_card .front i {
+		font-size: 14px;
+		line-height: 20px;
+	}
+}
+.poker_card .front .text {
+    font-size: 10px;
+    font-weight: bold;
+    color: #FFF;
+    background: #3f51b5;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    width: 80%;
+    position: absolute;
+    left: 10%;
+    bottom: 7px;
+    border-radius: 3px;
+    display: none;
+}
+@media (max-width: 500px) {
+	.poker_card .front .text {
+		font-size: 7px;
+		height: 12px;
+		line-height: 12px;
+		bottom: 2px;
+		border-radius: 2px;
+	}
+}
+.poker_card .back {
+    width: 100%;
+    height: 100%;
+    background: #00bcd4;
+	background: url(../img/games/poker_back.svg);
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    box-shadow: 0 1px #DDD;
+    padding: 10px;
+    border-radius: 3px;
+    border: 3px solid #FFF;
+    position: absolute;
+    transform: rotateY(180deg);
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+}
+.poker_card .back div {
+    background: #EEE;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    position: absolute;
+}
+@media (max-width: 500px) {
+	.poker_card .back div {
+		height: 3px;
+		width: 3px;
+	}
+}
+.poker_card .back div:nth-child(1) {
+    top: 10px;
+    left: 10px;
+}
+.poker_card .back div:nth-child(2) {
+    top: 10px;
+    right: 10px;
+}
+.poker_card .back div:nth-child(3) {
+    bottom: 10px;
+    left: 10px;
+}
+.poker_card .back div:nth-child(4) {
+    bottom: 10px;
+    right: 10px;
+}
+.poker_card .poker_card_inner.picked .front {
+    border-radius: 2px;
+    border: 3px solid #03a9f4;
+}
+@media (max-width: 500px) {
+	.poker_card .poker_card_inner.picked .front {
+		border-radius: 3px;
+		border: 1px solid #03a9f4;
+	}
+}
+@media (max-width: 500px) {
+	.poker_card .back i {
+		font-size: 15px;
+		top: calc(50% - 7.5px);
+		left: calc(50% - 7.5px);
+	}
+}
+.poker_card .back i {
+    color: #EFEFEF;
+    font-size: 25px;
+    position: absolute;
+    top: calc(50% - 12.5px);
+    left: calc(50% - 12.5px);
+}
+.poker_card .poker_card_inner.picked .front .text {
+    display: block;
+}
+.game_main .bet_btn {
+    max-width: 350px;
+    width: 100%;
+    height: 50px;
+    font-weight: bold;
+    font-size: 13px;
+    margin: 0px auto 10px;
+    background: #60c564!important;
+    border: 1px solid #60c564!important;
+    margin-top: 20px;
+    color: #FFF;
+}
+.hand.highlight {
+	border: 1px solid #2196F3!important;
+	background: #2196F3!important;
+}
+.hand.highlight .text {
+	color: #FFF;
+}
+.hand.highlight i{
+	color: #FFF!important;
+}
+.prize.highlight {
+	border: 1px solid #2196F3!important;
+	background: #2196F3!important;
+}
+.prize.highlight .text {
+	color: #FFF;
+}
+
+.hand.highlight2 {
+	border: 1px solid #4CAF50!important;
+	background: #4CAF50 !important;
+}
+.hand.highlight2 .text {
+	color: #FFF;
+}
+.hand.highlight2 i{
+	color: #FFF!important;
+}
+.prize.highlight2 {
+	border: 1px solid #4CAF50!important;
+	background: #4CAF50!important;
+}
+.prize.highlight2 .text {
+	color: #FFF;
+}
+.poker_card .poker_card_inner.blurred .front{
+	opacity: 0.6;
+}
+.poker_card .poker_card_inner.highlight .front {
+    border-radius: 2px;
+    border: 3px solid #8BC34A;
+}
+@media (max-width: 500px) {
+	.poker_card .poker_card_inner.highlight .front {
+		border-radius: 3px;
+		border: 1px solid #8BC34A;
+	}
+}
+.poker_card .poker_card_inner.highlight.blurred .front {
+	opacity: 1;
+}

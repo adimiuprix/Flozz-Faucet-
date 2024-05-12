@@ -11,11 +11,14 @@ class HomeController extends BaseController
         $userModel = new UserModel();
         $transactModel = new TransactionModel();
         $getPaid = $transactModel->where('type', 'Withdraw')->findAll();
+
         $totPaid = 0;
+
         // Melakukan iterasi untuk setiap transaksi dan menjumlahkan jumlahnya
         foreach ($getPaid as $paid) {
             $totPaid += intval($paid['amount']); // Mengkonversi ke integer sebelum menjumlahkan
         }
+
         $totUser = $userModel->countAll();
 
         $session = session();

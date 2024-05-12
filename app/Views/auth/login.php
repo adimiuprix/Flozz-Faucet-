@@ -1,48 +1,64 @@
 <?= $this->extend('layouts/template') ?>
 <?= $this->section('content') ?>
-<section class="vh-100 bg-light">
-    <div class="container h-100">
-        <div class="row justify-content-center align-items-center h-100">
-            <div class="col-lg-6">
-                <div class="card shadow-lg p-5">
-                    <h2 class="text-center mb-4">Login</h2>
 
-                    <?php if (session()->has('fastmsg')): ?>
-                        <div class="alert alert-success" role="alert">
-                            <?= session('fastmsg') ?>
+<section class="page_body">
+    <div class="container" style="max-width:450px">
+        <div class="row mt-4">
+            <div class="col-lg-12">
+                <div class="info_card p-0">
+                    <div class="row p-4">
+                        <div class="col-lg-12 mb-2">
+                            <h4 class="page_title"><i class="fas fa-sign-in-alt mr-1"></i>LOGIN</h4>
+                            <p class="page_description mb-0">
+                                Don't you have an account? <a href="<?= base_url('registration'); ?>" class="text-info">Sign up</a>.
+                            </p>
                         </div>
-                    <?php endif ?>
 
-                    <?php if (session()->has('error')): ?>
-                        <div class="alert alert-danger" role="alert">
-                            <?= session('error') ?>
-                        </div>
-                    <?php endif ?>
-
-                    <form action="<?= base_url('logincheck'); ?>" method="post">
-                        <div class="mb-3">
-                            <label class="form-label">Email address</label>
-                            <input type="email" name="email" class="form-control">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control">
-                        </div>
-                        <div class="pt-3">
-                            <div class="col-12 col-md-12 col-lg-12 mb-4 text-center">
-                                <div class="authkong_captcha" data-sitekey="<?= $siteKey; ?>" data-theme="light"></div>
+                        <div class="col-lg-12">
+                            <?php if (session()->has('fastmsg')): ?>
+                            <div class="alert alert-success" role="alert">
+                                <?= session('fastmsg') ?>
                             </div>
+                            <?php endif ?>
+                            <?php if (session()->has('error')): ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?= session('error') ?>
+                            </div>
+                            <?php endif ?>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                    <div class="mt-3 text-center">
-                        <p>Don't have an account yet? <a href="<?= base_url('registration'); ?>">signup here</a></p>
-                        <p>Forgot the password? <a href="<?= base_url('forget-password'); ?>">click here</a></p>
+                        <form action="<?= base_url('logincheck'); ?>" class="container" method="post">
+                            <div class="col-lg-12 mb-2">
+                                <div class="label_content">E-mail Address<span class="text_danger ml-1">*</span></div>
+                                <div class="input_container">
+                                    <div class="input_group password_container">
+                                        <input type="email" maxlength="64" id="email" name="email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 mb-2">
+                                <div class="label_content">Password<span class="text_danger ml-1">*</span></div>
+                                <div class="input_container">
+                                    <div class="input_group password_container">
+                                        <input type="password" maxlength="32" id="password" name="password"><i class="far fa-eye"></i>
+                                    </div>
+                                </div>
+                                <a href="<?= base_url('forget-password'); ?>">
+                                    <span class="form__note">Forgot password?</span>
+                                </a>
+                            </div>
+                            <div class="col-lg-12 mb-2">
+                                <div id="show_login_captcha">
+                                    <div class="authkong_captcha" data-sitekey="<?= $siteKey; ?>" data-theme="dark"></div>
+                                </div>
+                                <button type="submit" class="btn btn-lg btn-login2" style="margin:10px calc(50% - 150px);">Login</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 <?= $this->endSection() ?>

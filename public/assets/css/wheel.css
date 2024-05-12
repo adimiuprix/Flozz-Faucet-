@@ -1,0 +1,236 @@
+.gems_wheel_container {
+	max-width: 600px;
+	width: calc(100% - 40px);
+}
+.gems_wheel_container.game_main {
+	padding: 10px;
+}
+.wheel-container {
+	position: relative;
+	padding: 8.5px 0;
+	margin-bottom: 22px; 
+}
+.wheel-container .wheel, .wheel-container .wheel2 {
+    background-image: url("../images/games/wheel/wheel_stone.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: transparent;
+    margin: 23px auto;
+    width: 235px;
+    height: 235px;
+    z-index: 15;
+    position: relative; 
+}
+
+.wheel-container .wheel, .wheel-container .wheel2 {
+    will-change: transform; 
+}
+.wheel-container .wheel-mask {
+    background-image: url("../images/games/wheel/wheel_mask2.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    width: 300px;
+    height: 300px;
+    z-index: 10;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    right: 0; 
+}
+.wheel-container .wheel-pointer {
+    background-image: url("../images/games/wheel/wheel_pointer.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    width: 60px;
+    height: 40px;
+    z-index: 20;
+    position: absolute;
+    left: 0;
+    right: 0;
+	top: -5px;
+}
+.wheel-container .wheel-center {
+    background-image: url("../images/games/wheel/wheel_center.svg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    z-index: 20;
+    position: absolute;
+    top: 135px;
+    left: 0;
+    right: 0; 
+}
+.wheel-container .spin_label {
+    background-image: url("../images/games/wheel/stone_spin_label.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    width: 90px;
+    height: 52.5px;
+    z-index: 20;
+    position: absolute;
+    top: 120px;
+    left: 0;
+    right: 0;
+	animation: label_pulse 2s infinite linear;
+}
+@keyframes label_pulse {
+    0% {
+        -webkit-transform: rotate(-5deg) scale3d(1, 1, 1);
+        -ms-transform: rotate(-5deg) scale3d(1, 1, 1);
+        transform: rotate(-5deg) scaleZ(1)
+    }
+    50% {
+        -webkit-transform: rotate(0deg) scale3d(1.1, 1.1, 1.1);
+        -ms-transform: rotate(0deg) scale3d(1.1, 1.1, 1.1);
+        transform: rotate(0) scale3d(1.1, 1.1, 1.1)
+    }
+    to {
+        -webkit-transform: rotate(-5deg) scale3d(1, 1, 1);
+        -ms-transform: rotate(-5deg) scale3d(1, 1, 1);
+        transform: rotate(-5deg) scaleZ(1)
+    }
+}
+.game_wheel_result {
+	padding: 0px;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 0;
+	background-color: rgba(255, 255, 255, 0.6);
+	transition: opacity 300ms ease-in-out, z-index 300ms ease-in-out;
+	opacity: 0;
+	top: 0px;
+}
+.game_wheel_result.showing {
+    opacity: 1;
+	z-index: 30;
+}
+.game_wheel_result .profit {
+	top: calc(50% - 0.5em);
+	left: 0;
+    position: absolute;
+    right: 0;
+	font-size: 50px;
+    font-weight: 700;
+	text-align: center;
+	text-shadow: 2px 2px 2px #333;
+	color: #FFF;
+}
+#wheel-main {
+  position: relative;
+  z-index: 3;
+  width: 300px;
+  margin: 20px auto 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; 
+}
+.wheel_led {
+	width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    position: absolute;
+	background: url('../images/games/wheel/led_blink.svg');
+	z-index: 10;
+	background-size: 100% 100%;
+}
+@keyframes blinker_odd {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes blinker_even {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.wheel_led#led1 {
+    top: 10.5px;
+    left: 103.5px;
+	animation: blinker_odd 0.5s infinite;
+}
+.wheel_led#led2 {
+	top: 10.5px;
+    left: 172.5px;
+	animation: blinker_even 0.5s infinite;
+}
+.wheel_led#led3 {
+    top: 45.5px;
+    left: 231.5px;
+	animation: blinker_odd 0.5s infinite;
+}
+.wheel_led#led4 {
+	top: 105px;
+    left: 266px;
+	animation: blinker_even 0.5s infinite;
+}
+.wheel_led#led5 {
+    top: 174px;
+    left: 266px;
+	animation: blinker_odd 0.5s infinite;
+}
+.wheel_led#led6 {
+    top: 233.5px;
+    left: 231px;
+	animation: blinker_even 0.5s infinite;
+}
+.wheel_led#led7 {
+    top: 267.5px;
+    left: 171px;
+	animation: blinker_odd 0.5s infinite;
+}
+.wheel_led#led8 {
+    top: 267px;
+    left: 102.5px;
+	animation: blinker_even 0.5s infinite;
+}
+.wheel_led#led9 {
+    top: 232.5px;
+    left: 43px;
+	animation: blinker_odd 0.5s infinite;
+}
+.wheel_led#led10 {
+    top: 173px;
+    left: 9px;
+	animation: blinker_even 0.5s infinite;
+}
+.wheel_led#led11 {
+    top: 104px;
+    left: 9.5px;
+	animation: blinker_odd 0.5s infinite;
+}
+.wheel_led#led12 {
+    top: 45px;
+    left: 44px;
+	animation: blinker_even 0.5s infinite;
+}
+.spin_btn {
+	width: 170px!important;
+    font-size: 13px!important;
+    background-image: conic-gradient(from 1turn,#4caf50,#8bc34a)!important;
+    border: none!important;
+    height: 40px!important;
+}
+
+/*.wheel_led.led_blink {
+    background: url('../images/games/wheel/led_blink.png');
+	opacity: 0.8;
+	z-index: 10;
+	background-size: 100% 100%;
+}*/
