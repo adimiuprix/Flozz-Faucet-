@@ -35,7 +35,7 @@
                 <div class="card h-100">
                     <div class="card-body">
                         <h5 class="card-title">Total Paid</h5>
-                        <p class="card-text"><?= $totPaid;?></p>
+                        <p class="card-text"><?= number_format($totPaid / 100000000, 8); ?></p>
                     </div>
                 </div>
             </div>
