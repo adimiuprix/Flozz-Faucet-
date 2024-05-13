@@ -8,7 +8,10 @@
                 <div class="hero-content">
                     <h1 class="wow fadeInLeft" data-wow-delay=".4s">Claim your free troncoin</h1>
                     <p class="wow fadeInLeft" data-wow-delay=".6s">It's a fun and easy way to accumulate troncoin and start building your crypto portfolio.</p>
-                    <div class="button wow fadeInLeft" data-wow-delay=".8s"><a href="javascript:void(0)" onclick="redirect_login()" class="btn">Login</a><a href="javascript:void(0)" onclick="redirect_signup()" class="btn btn-alt">Sign up</a><input type="hidden" name="referrer" id="referrer" value=""></div>
+                    <div class="button wow fadeInLeft" data-wow-delay=".8s">
+                        <a href="<?= base_url('login'); ?>" class="btn">Login</a>
+                        <a href="<?= base_url('registration'); ?>" class="btn btn-alt">Sign up</a>
+                    </div>
                 </div>
             </div>
             <div class="col-xl-6 col-lg-7 col-md-12 col-12 text-center">
@@ -28,14 +31,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
+            <div class="col-lg-12 col-md-12 col-12">
                 <div class="single-feature wow fadeInUp" data-wow-delay=".2s">
                     <i class="fas fa-hand-holding-usd"></i>
                     <h3>Faucet Claim</h3>
                     <p>Wait until the clock stops and click to "Ready To Claim" for claiming faucet.</p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-12">
+            <!-- <div class="col-lg-4 col-md-6 col-12">
                 <div class="single-feature wow fadeInUp" data-wow-delay=".4s">
                     <i class="fas fa-solid fa-dice"></i>
                     <h3>Casino</h3>
@@ -48,10 +51,11 @@
                     <h3>Affiliate</h3>
                     <p>Share your referral link and earn more 50% every time your referals spins and 0.4% of the their total wager.</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
+
 <section class="featured-game pt-5" style="background:#1a2c38!important">
     <div class="container">
         <div class="row justify-content-center">

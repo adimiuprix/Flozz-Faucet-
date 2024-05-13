@@ -12,8 +12,7 @@ use PragmaRX\Random\Random;
 class RecoveryController extends BaseController
 {
     public function forget() {
-        $session = session();
-        $is_login = $session->get('id');
+        $is_login = $this->is_login;
 
         return view('auth/forget', compact('is_login'));
     }
@@ -85,9 +84,7 @@ class RecoveryController extends BaseController
     }
 
     public function setPassword($find){
-        $session = session();
-        $is_login = $session->get('id');
-
+        $is_login = $this->is_login;
         $idUser = $find['id_user'];
 
         return view('auth/recovery', compact('idUser', 'is_login'));

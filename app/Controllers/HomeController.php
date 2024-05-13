@@ -21,8 +21,7 @@ class HomeController extends BaseController
 
         $totUser = $userModel->countAll();
 
-        $session = session();
-        $is_login = $session->get('id');
+        $is_login = $this->is_login;
 
         $transacts = $transactModel
             ->join('users', 'users.id_user = transactions.user')

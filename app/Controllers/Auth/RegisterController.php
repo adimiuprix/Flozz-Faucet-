@@ -14,8 +14,7 @@ class RegisterController extends BaseController
 
         $reffCode = $this->request->getCookie('refflink');
 
-        $session = session();
-        $is_login = $session->get('id');
+        $is_login = $this->is_login;
 
         return view('auth/registration', compact('reffCode', 'is_login'));
     }
