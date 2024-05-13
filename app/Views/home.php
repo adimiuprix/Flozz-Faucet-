@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-xl-6 col-lg-7 col-md-12 col-12 text-center">
-                <div class="hero-img d-none d-md-block"><img class="shape faucet" src="public/assets/images/doge_bg.svg" alt=""></div>
+                <div class="hero-img d-none d-md-block"><img class="shape faucet" src="public/assets/images/hero.svg" alt=""></div>
             </div>
         </div>
     </div>

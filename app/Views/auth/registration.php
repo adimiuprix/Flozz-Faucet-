@@ -56,6 +56,9 @@
                                 </div>
                             </div>
                             <div class="col-lg-12 mb-2">
+                                <div id="show_login_captcha">
+                                    <div class="authkong_captcha" data-sitekey="<?= $siteKey; ?>" data-theme="dark"></div>
+                                </div>
                                 <button type="submit" class="btn btn-lg btn-login2" style="margin:10px calc(50% - 150px);">Create an account</button>
                             </div>
                         </form>
