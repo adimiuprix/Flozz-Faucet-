@@ -35,6 +35,10 @@ class Transactions extends Migration
                 'constraint'     => 255,
                 'null' => true,
             ],
+            'time' => [
+                'type'       => 'BIGINT',
+                'null' => true,
+            ],
             'create_at DATETIME DEFAULT CURRENT_TIMESTAMP',
         ]);
         $this->forge->addKey('id', true);

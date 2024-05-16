@@ -86,10 +86,10 @@
                             <?php foreach($transacts as $trans): ?>
                             <tr>
                                 <?php
-                                    $carbonDate = \Carbon\Carbon::parse($trans['create_at']);
-                                    $formatedDate = $carbonDate->format('d F Y');
+                                    $carbonDate = \Carbon\Carbon::createFromTimestamp($trans['time']);
+                                    $formattedDate = $carbonDate->diffForHumans();
                                 ?>
-                                <td><?= $formatedDate; ?></td>
+                                <td><?= $formattedDate; ?></td>
                                 <td><?= $trans['username']; ?></td>
                                 <td><?= $trans['type']; ?></td>
                                 <td><?= number_format($trans['amount'] / 100000000, 8); ?></td>
@@ -109,7 +109,7 @@
             <div class="row mb-5">
                 <div class="col-lg-4 col-sm-12">
                     <div class="single-fun">
-                        <img src="public/assets/images/funfact/doge_player.png" alt="">
+                        <img src="public/assets/images/trx-stats.png" alt="player">
                         <div class="count-area">
                             <div class="count"><?= $totUser;?></div>
                         </div>
@@ -118,7 +118,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-12">
                     <div class="single-fun">
-                        <img src="public/assets/images/funfact/doge_game.png" alt="">
+                        <img src="public/assets/images/trx-stats.png" alt="runing day">
                         <div class="count-area">
                             <div class="count">09 May 2024</div>
                         </div>
@@ -127,7 +127,7 @@
                 </div>
                 <div class="col-lg-4 col-sm-12">
                     <div class="single-fun">
-                        <img src="public/assets/images/funfact/doge_win.png" alt="">
+                        <img src="public/assets/images/trx-stats.png" alt="users">
                         <div class="count-area">
                             <div class="count"><?= number_format($totPaid / 100000000, 8); ?> TRX</div>
                         </div>
@@ -154,10 +154,10 @@
             <div class="col-12">
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class="title"><span class="serial">01</span>About Flozzcet.cc?</span><i class="fas fa-plus"></i></button></h2>
+                        <h2 class="accordion-header" id="headingOne"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class="title"><span class="serial">01</span>About Tronzyllo?</span><i class="fas fa-plus"></i></button></h2>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
                             <div class="accordion-body">
-                                <p><a href="<?= base_url('/'); ?>" style="color:#2196f3">Flozzcet.cc</a> is a website that allows users to claim free troncoin hourly and play online games to earn even more troncoin.
+                                <p><a href="<?= base_url('/'); ?>" style="color:#2196f3">Tronzyllo</a> is a website that allows users to claim free troncoin hourly and play online games to earn even more troncoin.
                                     It's a fun and easy way to accumulate troncoin and start building your crypto portfolio. <br>With its user-friendly interface and variety of games to choose from, troncoin is the perfect platform for those looking to get into the world of cryptocurrency. <br>Sign up now and start earning troncoin today!
                                 </p>
                             </div>
@@ -176,7 +176,7 @@
                         <h2 class="accordion-header" id="headingThree"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><span class="title"><span class="serial">03</span>How to earn more free spins?</span><i class="fas fa-plus"></i></button></h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <p>You will get 10 free spins on your first registration. In addition, users who are active in introducing and advertising the Flozzcet.cc website to other users or on social networks will also receive random free spins.
+                                <p>You will get 10 free spins on your first registration. In addition, users who are active in introducing and advertising the Tronzyllo website to other users or on social networks will also receive random free spins.
                                     The more effective the referral activity, the greater the chance of getting free spins reward.
                                 </p>
                             </div>

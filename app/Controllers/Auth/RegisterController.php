@@ -18,7 +18,7 @@ class RegisterController extends BaseController
 
         $siteKey = env('Auth_Kong_sitekey');
 
-        return view('auth/registration', compact('reffCode', 'is_login'));
+        return view('auth/registration', compact('reffCode', 'is_login', 'siteKey'));
     }
 
     public function register()

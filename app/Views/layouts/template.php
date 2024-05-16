@@ -7,8 +7,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Flozzcet | The Best Crypto Earning Site With Minimal Effort</title>
-        <link rel="icon" type="image/x-icon" href="public/assets/images/dogeking.svg">
-        <link rel="shortcut icon" href="public/assets/images/favicon.html" type="image/x-icon">
+        <link rel="icon" type="image/x-icon" href="public/assets/images/favicon.png">
+        <link rel="shortcut icon" href="public/assets/images/favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="public/assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="public/assets/css/plugin.css">
         <link rel="stylesheet" href="public/assets/css/style.css">
@@ -33,7 +33,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <a class="navbar-brand" href="<?= base_url('/'); ?>">
-								<img src="public/assets/images/dogeking.svg" alt="" style="height:60px">
+								<img src="public/assets/images/logo.png" alt="" style="height:60px">
 							</a>
                             <div class="float-right mt-3">
                                 <?php if(!is_null($is_login)): ?>
@@ -58,7 +58,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <p class="copy_right text-center" style="font-size:14px">
-                                <span style="font-weight:bold">Copyright ©2024 All rights reserved | Flozzcet.cc</span>
+                                <span style="font-weight:bold">Copyright ©2024 All rights reserved | Tronzyllo</span>
                             </p>
                         </div>
                     </div>

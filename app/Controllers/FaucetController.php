@@ -68,7 +68,8 @@ class FaucetController extends BaseController
                         'user' => $idUser,
                         'hash' => $string,
                         'amount' => $reward,
-                        'type' => 'Claim'
+                        'type' => 'Claim',
+                        'time' => Carbon::now()->unix()
                     ];
                     $transactModel->insert($data);
 
@@ -104,7 +105,8 @@ class FaucetController extends BaseController
             'user' => $downline,
             'hash' => $hashBonus,
             'amount' => $reward,
-            'type' => 'Bonus'
+            'type' => 'Bonus',
+            'time' => Carbon::now()->unix()
         ];
         $transactModel->insert($data);
 

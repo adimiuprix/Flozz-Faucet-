@@ -134,7 +134,8 @@ class DashboardController extends BaseController
                     'user' => $idUser,
                     'hash' => $string,
                     'amount' => $satoshiAmount,
-                    'type' => 'Withdraw'
+                    'type' => 'Withdraw',
+                    'time' => Carbon::now()->unix()
                 ];
 
                 $transactModel->insert($data);
