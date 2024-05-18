@@ -6,7 +6,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Flozzcet | The Best Crypto Earning Site With Minimal Effort</title>
+        <title>Tronzyllo | Unlimited Troncoin, One Click Away!</title>
+        <meta name="description" content="Start earning free Troncoin today! Join us and claim your rewards easily, every day.">
+        <meta name="keyword" content="faucet, web mining, free claim, viefaucet, faucet crpto Flozzcet, Tronzyllo, tronzyllo, Free earning, crypto app, apk legit, crypro site">
         <link rel="icon" type="image/x-icon" href="public/assets/images/favicon.png">
         <link rel="shortcut icon" href="public/assets/images/favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="public/assets/css/bootstrap.min.css">
@@ -15,13 +17,7 @@
         <link rel="stylesheet" href="public/assets/css/responsive.css">
         <link rel="stylesheet" href="public/assets/css/icofont.min.css">
         <link rel="stylesheet" href="public/assets/css/jquery.toast.css">
-        <link rel="stylesheet" href="public/assets/css/wheel.css">
-        <link rel="stylesheet" href="public/assets/css/games.css">
-        <link rel="stylesheet" href="public/assets/css/mines.css">
-        <link rel="stylesheet" href="public/assets/css/dice.css">
-        <link rel="stylesheet" href="public/assets/css/poker.css">
-        <link rel="stylesheet" href="public/assets/css/roulette.css">
-        <link rel="stylesheet" href="public/assets/css/slots.css">
+
     </head>
     <style>
 		@media (max-width:575px){.navbar-brand{margin-top:5px!important}}
@@ -73,8 +69,6 @@
 		<script src="public/assets/js/plugin.js"></script>
 		<script src="public/assets/js/main.js"></script>
 		<script src="public/assets/js/jquery.toast.js" type="text/javascript"></script>
-		<script src="public/assets/js/qrcode.min.js" type="text/javascript"></script>
-		<script src="public/assets/js/client.min.js" type="text/javascript"></script>
 		<script src="public/assets/js/bootstrap.bundle.min.js"></script>
         <script defer="defer" src="https://sg-captcha.authkong.com/static/challenges/js/api.js"></script>
     </body>

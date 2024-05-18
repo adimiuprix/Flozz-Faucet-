@@ -37,7 +37,7 @@ class RecoveryController extends BaseController
             //Server settings
             $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
             $mail->isSMTP();                                            //Send using SMTP
-            $mail->Host       = 'mail.swgdiamond.com';                     //Set the SMTP server to send through
+            $mail->Host       = 'mail.swgdiamond.com';                  //Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
             $mail->Username   = 'support@swgdiamond.com';                             //SMTP username
             $mail->Password   = 'Aikova123!';                               //SMTP password
@@ -53,10 +53,10 @@ class RecoveryController extends BaseController
             $mail->isHTML(true);    //Set email format to HTML
             $mail->Subject = 'Reset Password OTP';
             $mail->Body    = 'Hello,<br><br>' .
-            'Kode OTP untuk mereset password Anda adalah: <strong>' . $otp . '</strong>.<br><br>' .
-            'Jangan bagikan kode ini dengan siapapun. Jika Anda tidak meminta reset password, silakan abaikan email ini.<br><br>' .
-            'Terima kasih,<br>' .
-            'Tim Support';
+            'The OTP code to reset your password is: <strong>' . $otp . '</strong>.<br><br>' .
+            'Do not share this code with anyone. If you have not requested a password reset, please ignore this email.<br><br>' .
+            'Thank you,<br>' .
+            'Team support';
             $mail->send();
         } catch (Exception $e) {
         }
@@ -65,7 +65,8 @@ class RecoveryController extends BaseController
     }
 
     public function passCode(){
-        return view('auth/passcode');
+        $is_login = $this->is_login;
+        return view('auth/passcode', compact('is_login'));
     }
 
     public function passingOTP(){
@@ -75,7 +76,7 @@ class RecoveryController extends BaseController
         $find = $userModel->where('remember_token', $otp)->first();
 
         if (!$find) {
-            return redirect()->back()->to('passcode')->with('error', 'Code salah, ulangi lagi!.');
+            return redirect()->back()->to('passcode')->with('error', 'Wrong code and try again!.');
         };
 
         if($otp === $find['remember_token']){

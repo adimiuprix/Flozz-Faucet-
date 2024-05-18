@@ -6,11 +6,16 @@
         <div class="row align-items-center">
             <div class="col-xl-6 col-lg-5 col-md-12 col-12">
                 <div class="hero-content">
-                    <h1 class="wow fadeInLeft" data-wow-delay=".4s">Claim your free troncoin</h1>
-                    <p class="wow fadeInLeft" data-wow-delay=".6s">It's a fun and easy way to accumulate troncoin and start building your crypto portfolio.</p>
+                    <h1 class="wow fadeInLeft" data-wow-delay=".4s">Welcome To Tronzyllo</h1>
+                    <p class="wow fadeInLeft" data-wow-delay=".6s">Start earning free Troncoin today! Join us and claim your rewards easily, every day.</p>
                     <div class="button wow fadeInLeft" data-wow-delay=".8s">
+                        <?php if(!is_null($is_login)): ?>
+                        <a href="<?= base_url('dashboard'); ?>" class="btn btn-info">Dashboard</a>
+                        <a href="<?= base_url('logout'); ?>" class="btn btn-danger">Logout</a>
+                        <?php else: ?>
                         <a href="<?= base_url('login'); ?>" class="btn">Login</a>
-                        <a href="<?= base_url('registration'); ?>" class="btn btn-alt">Sign up</a>
+                        <a href="<?= base_url('registration'); ?>" class="btn btn-alt">Get started</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -120,7 +125,7 @@
                     <div class="single-fun">
                         <img src="public/assets/images/trx-stats.png" alt="runing day">
                         <div class="count-area">
-                            <div class="count">09 May 2024</div>
+                            <div class="count">18 May 2024</div>
                         </div>
                         <p>Running Since</p>
                     </div>
@@ -157,8 +162,9 @@
                         <h2 class="accordion-header" id="headingOne"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class="title"><span class="serial">01</span>About Tronzyllo?</span><i class="fas fa-plus"></i></button></h2>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
                             <div class="accordion-body">
-                                <p><a href="<?= base_url('/'); ?>" style="color:#2196f3">Tronzyllo</a> is a website that allows users to claim free troncoin hourly and play online games to earn even more troncoin.
-                                    It's a fun and easy way to accumulate troncoin and start building your crypto portfolio. <br>With its user-friendly interface and variety of games to choose from, troncoin is the perfect platform for those looking to get into the world of cryptocurrency. <br>Sign up now and start earning troncoin today!
+                                <p><a href="<?= base_url('/'); ?>" style="color:#2196f3">Tronzyllo</a> is a website that allows users to claim free troncoins to get more troncoins. This is a fun and easy way to accumulate troncoins and start building your crypto portfolio.
+                                    With a user-friendly interface and a variety of games to choose from, troncoin is the perfect platform for those looking to dive into the world of cryptocurrency.
+                                    Register now and start earning troncoins today!
                                 </p>
                             </div>
                         </div>
@@ -167,35 +173,26 @@
                         <h2 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><span class="title"><span class="serial">02</span>How about the affliate program?</span><i class="fas fa-plus"></i></button></h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <p>You will get <b>50%</b> bonus every time your refferals claim free troncoin and <b>0.4%</b> of their total wager.</p>
-                                <p>You can see your referral link at <a href="login.html" style="color:#2196f3">Referrals page</a>.</p>
+                                <p>You will get a bonus in the same ratio every time your referral claims a free troncoin.</p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><span class="title"><span class="serial">03</span>How to earn more free spins?</span><i class="fas fa-plus"></i></button></h2>
+                        <h2 class="accordion-header" id="headingThree"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><span class="title"><span class="serial">03</span>What if my energy runs out?</span><i class="fas fa-plus"></i></button></h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <p>You will get 10 free spins on your first registration. In addition, users who are active in introducing and advertising the Tronzyllo website to other users or on social networks will also receive random free spins.
-                                    The more effective the referral activity, the greater the chance of getting free spins reward.
+                                <p>
+                                    Each claim costs 1 energy. If your energy runs out, wait 24 hours and your energy will recover.
                                 </p>
                             </div>
                         </div>
                     </div>
+
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFour"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><span class="title"><span class="serial">04</span>Where to see my deposit and withdrawal transaction history?</span><i class="fas fa-plus"></i></button></h2>
+                        <h2 class="accordion-header" id="headingFour"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><span class="title"><span class="serial">04</span>How do I contact the support team?</span><i class="fas fa-plus"></i></button></h2>
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <p>Click on your avatar icon then select Transactions.</p>
-                                <p>Or visit <a href="login.html" style="color:#2196f3"> Transactions</a> page.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFive"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive"><span class="title"><span class="serial">05</span>How do I contact the support team?</span><i class="fas fa-plus"></i></button></h2>
-                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <p>You can contact us via <a href="contact.html">Contact page</a> or email <a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="0c7f797c7c637e784c68636b696765626b226563">[email&#160;protected]</a></p>
+                                <p>You can contact us on telegram</p>
                             </div>
                         </div>
                     </div>

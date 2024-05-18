@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Flozzcet</title>
+    <title>Tronzyllo</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="fucate, highest paying crypto faucet, login coinpayu, faucetpay withdrawal, shib faucets, faucet earner, faucetpay application, Claim free Crypto easy, Claim Faucet" name="keywords">
-    <meta content="Flozzcet is a faucet platform that allows you to earn crypto with minimal effort." name="description">
+    <meta name="keywords" content="fucate, highest paying crypto faucet, login coinpayu, faucetpay withdrawal, shib faucets, faucet earner, faucetpay application, Claim free Crypto easy, Claim Faucet">
+    <meta name="description" content="Tronzyllo is a website that allows users to claim free troncoins to get more troncoins. This is a fun and easy way to accumulate troncoins and start building your crypto portfolio. With a user-friendly interface and a variety of games to choose from, troncoin is the perfect platform for those looking to dive into the world of cryptocurrency. Register now and start earning troncoins today!">
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -106,7 +106,6 @@
     <!-- Template Javascript -->
     <script src="<?= base_url('public/user/js/main.js'); ?>"></script>
     <script defer="defer" src="https://sg-captcha.authkong.com/static/challenges/js/api.js"></script>
-
 </body>
 
 </html>
