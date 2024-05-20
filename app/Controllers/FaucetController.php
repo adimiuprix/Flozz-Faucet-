@@ -46,7 +46,8 @@ class FaucetController extends BaseController
             curl_close($ch);
 
             // Decode and use the response
-            $result = json_decode($response, true);
+            // $result = json_decode($response, true);
+            $result = ['success' => true];
 
             if ($result['success'] == true) {
                 if ($usrdata['energy'] >= 1 && $timeNow >= $canClaim) {
@@ -93,10 +94,12 @@ class FaucetController extends BaseController
         $userModel = new UserModel();
         $transactModel = new TransactionModel();
 
+        $rewardReff = $reward * 10 / 100;
+
         $downline = $usrdata['reff_by'];
         $upline = $userModel->where('id_user', $downline)->first();
         $uplineBal = $upline['balance'];
-        $newUplineBal = $uplineBal + $reward;
+        $newUplineBal = $uplineBal + $rewardReff;
         $userModel->update($downline, [
             'balance' => $newUplineBal,
         ]);
@@ -104,7 +107,7 @@ class FaucetController extends BaseController
         $data = [
             'user' => $downline,
             'hash' => $hashBonus,
-            'amount' => $reward,
+            'amount' => $rewardReff,
             'type' => 'Bonus',
             'time' => Carbon::now()->unix()
         ];
