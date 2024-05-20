@@ -32,7 +32,7 @@ class Settings extends Migration
             ],
             'reward_rate' => [
                 'type'       => 'DECIMAL',
-                'constraint'     => 16,8,
+                'constraint'     => '16,8',
                 'default' => '0.00000000',
             ],
             'free_energy' => [
