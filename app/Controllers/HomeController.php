@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use App\Models\UserModel;
 use App\Models\TransactionModel;
+use App\Models\FaqModel;
 
 class HomeController extends BaseController
 {
@@ -10,6 +11,8 @@ class HomeController extends BaseController
     {
         $userModel = new UserModel();
         $transactModel = new TransactionModel();
+        $faqsModel = new FaqModel();
+
         $getPaid = $transactModel->where('type', 'Withdraw')->findAll();
 
         $totPaid = 0;
@@ -29,6 +32,8 @@ class HomeController extends BaseController
             ->limit(10)
             ->findAll();
 
-        return view('home', compact('totUser', 'totPaid', 'is_login', 'transacts'));
+        $faqs = $faqsModel->findAll();
+
+        return view('home', compact('totUser', 'totPaid', 'is_login', 'transacts', 'faqs'));
     }
 }

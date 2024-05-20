@@ -20,7 +20,7 @@ class DashboardController extends BaseController
         $statUsr = $userModel->find($idUser);
 
         $stats = [
-            'balance' => number_format($statUsr['balance'] / 100000000, 8),
+            'balance' => $statUsr['balance'],
             'energy' => $statUsr['energy'],
             'reffs' => $userModel->where('reff_by', $idUser)->countAllResults(), // Menghitung jumlah referral
         ];
@@ -40,7 +40,7 @@ class DashboardController extends BaseController
         $userModel = new UserModel();
         $settingModel = new SettingModel();
         $getReward = $settingModel->first();
-        $rewardRate = number_format($getReward['reward_rate'] / 100000000, 8);
+        $rewardRate = $getReward['reward_rate'];
 
         $statUsr = $userModel->find($idUser);
         $energy = $statUsr['energy'];

@@ -31,9 +31,9 @@ class Settings extends Migration
                 'null' => true,
             ],
             'reward_rate' => [
-                'type'       => 'INT',
-                'constraint'     => 10,
-                'default' => '0',
+                'type'       => 'DECIMAL',
+                'constraint'     => 16,8,
+                'default' => '0.00000000',
             ],
             'free_energy' => [
                 'type'       => 'INT',
@@ -49,7 +49,7 @@ class Settings extends Migration
                 'sitename'     => 'Flozz Faucet',
                 'keyword'     => 'Faucet',
                 'description'     => 'Get reward with easy',
-                'reward_rate'     => '1',
+                'reward_rate'     => '1.00000000',
                 'free_energy'     => '10',
             ],
         ];

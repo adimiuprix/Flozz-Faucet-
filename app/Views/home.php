@@ -158,44 +158,26 @@
         <div class="row p-4">
             <div class="col-12">
                 <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><span class="title"><span class="serial">01</span>About Tronzyllo?</span><i class="fas fa-plus"></i></button></h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
-                            <div class="accordion-body">
-                                <p><a href="<?= base_url('/'); ?>" style="color:#2196f3">Tronzyllo</a> is a website that allows users to claim free troncoins to get more troncoins. This is a fun and easy way to accumulate troncoins and start building your crypto portfolio.
-                                    With a user-friendly interface and a variety of games to choose from, troncoin is the perfect platform for those looking to dive into the world of cryptocurrency.
-                                    Register now and start earning troncoins today!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><span class="title"><span class="serial">02</span>How about the affliate program?</span><i class="fas fa-plus"></i></button></h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <p>You will get a bonus in the same ratio every time your referral claims a free troncoin.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><span class="title"><span class="serial">03</span>What if my energy runs out?</span><i class="fas fa-plus"></i></button></h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <p>
-                                    Each claim costs 1 energy. If your energy runs out, wait 24 hours and your energy will recover.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
 
+                    <?php foreach($faqs as $faq): ?>
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFour"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><span class="title"><span class="serial">04</span>How do I contact the support team?</span><i class="fas fa-plus"></i></button></h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= $faq['id']; ?>" aria-expanded="true" aria-controls="collapse<?= $faq['id']; ?>">
+                                <span class="title">
+                                    <span class="serial"><?= $faq['id']; ?></span>
+                                    <?= $faq['question']; ?>
+                                </span>
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </h2>
+                        <div id="collapse<?= $faq['id']; ?>" class="accordion-collapse collapse" aria-labelledby="heading<?= $faq['id']; ?>" data-bs-parent="#accordionExample" style="">
                             <div class="accordion-body">
-                                <p>You can contact us on telegram</p>
+                                <p><?= $faq['answer']; ?></p>
                             </div>
                         </div>
                     </div>
+                    <?php endforeach; ?>
+
                 </div>
             </div>
         </div>

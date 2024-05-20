@@ -30,7 +30,7 @@
     </div>
 
     <div class="pt-3">
-        <div class="alert alert-info text-center">
+        <div class="alert alert-danger text-center">
             To claim rewards, make sure you have energy, each reward claim costs 1 energy. Energy that runs out will be restored by the system every 24 hours.</br>
             Follow our channel for latest announcements <a href="https://t.me/tronzylloofc">@Tronzyllo Group</a>
         </div>

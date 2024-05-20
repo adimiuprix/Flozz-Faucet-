@@ -57,6 +57,34 @@ class RegisterController extends BaseController
             return redirect()->back()->withInput()->with('error', 'You cant create multiple account! 😈.');
         }
 
+        $captchaAuth = env('CAPTCHA_AUTH');
+
+        if($captchaAuth == 1){
+            // AuthKong verification API URL
+            $url = "https://verify.authkong.com/";
+
+            // Data to be sent
+            $data = [
+                'secret' => env('Auth_Kong_secret'), // Replace with your private key
+                'response' => $_POST['captcha-response'] // Captcha response from the frontend
+            ];
+
+            // Use cURL for the API request
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $response = curl_exec($ch);
+            curl_close($ch);
+
+            // Decode and use the response
+            $result = json_decode($response, true);
+
+            if ($result['success'] == false) {
+                return redirect()->back()->withInput()->with('error', 'You have to resolve captcha to registration! 😊.');
+            };
+        };
+
         // Ambil data dari form
         $reff_by = $this->request->getPost('reffcode');
 

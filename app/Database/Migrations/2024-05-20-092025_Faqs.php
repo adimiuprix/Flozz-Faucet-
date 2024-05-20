@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Transactions extends Migration
+class Faqs extends Migration
 {
     public function up()
     {
@@ -15,38 +15,24 @@ class Transactions extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'user' => [
-                'type'       => 'INT',
-                'constraint'     => 100,
-                'null' => true,
-            ],
-            'hash' => [
+            'question' => [
                 'type'       => 'VARCHAR',
                 'constraint'     => 255,
                 'null' => true,
             ],
-            'amount' => [
-                'type'       => 'DECIMAL',
-                'constraint'     => 16,8,
-                'default' => '0.00000000',
-            ],
-            'type' => [
+            'answer' => [
                 'type'       => 'VARCHAR',
                 'constraint'     => 255,
-                'null' => true,
-            ],
-            'time' => [
-                'type'       => 'BIGINT',
                 'null' => true,
             ],
             'create_at DATETIME DEFAULT CURRENT_TIMESTAMP',
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('transactions');
+        $this->forge->createTable('faqs');
     }
 
     public function down()
     {
-        //
+        $this->forge->dropTable('faqs');
     }
 }

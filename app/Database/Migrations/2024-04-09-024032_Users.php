@@ -31,9 +31,9 @@ class Users extends Migration
                 'null' => true,
             ],
             'balance' => [
-                'type'       => 'INT',
-                'constraint'     => 10,
-                'default' => '0',
+                'type'       => 'DECIMAL',
+                'constraint'     => '16,8',
+                'default' => '0.00000000',
             ],
             'referral_code' => [
                 'type'       => 'VARCHAR',
