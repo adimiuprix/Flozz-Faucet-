@@ -35,6 +35,11 @@ class Settings extends Migration
                 'constraint'     => '16,8',
                 'default' => '0.00000000',
             ],
+            'reward_reff' => [
+                'type'       => 'INT',
+                'constraint'     => 100,
+                'default' => '10',
+            ],
             'free_energy' => [
                 'type'       => 'INT',
                 'constraint'     => 10,
@@ -50,6 +55,7 @@ class Settings extends Migration
                 'keyword'     => 'Faucet',
                 'description'     => 'Get reward with easy',
                 'reward_rate'     => '1.00000000',
+                'reward_reff'   => '10',
                 'free_energy'     => '10',
             ],
         ];

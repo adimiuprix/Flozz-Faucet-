@@ -21,7 +21,6 @@ class FaucetController extends BaseController
         $transactModel = new TransactionModel();
         $settingModel = new SettingModel();
         $getReward = $settingModel->first();
-
         $usrdata = $userModel->find($idUser);
         $timeNow = Carbon::now()->unix();
         $LastClaimTime = $usrdata['last_claim'];
@@ -88,13 +87,17 @@ class FaucetController extends BaseController
     }
 
     public function RewardReferrer($usrdata, $reward){
+        $settingModel = new SettingModel();
+        $rewardReff = $settingModel->first();
+        $bonus = $rewardReff['reward_reff'];
+
         $random = new Random();
         $hashBonus = $random->lowercase()->size(40)->get();
 
         $userModel = new UserModel();
         $transactModel = new TransactionModel();
 
-        $rewardReff = $reward * 10 / 100;
+        $rewardReff = $reward * $bonus / 100;
 
         $downline = $usrdata['reff_by'];
         $upline = $userModel->where('id_user', $downline)->first();

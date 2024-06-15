@@ -25,6 +25,7 @@ $routes->post('recpass', 'Auth\RecoveryController::recoveryPassword');
 $routes->get('dashboard', 'User\DashboardController::index');
 $routes->get('offerwall', 'User\DashboardController::offerwall');
 $routes->get('faucet', 'User\DashboardController::faucet');
+$routes->get('shortlink', 'User\DashboardController::shortLink');
 $routes->get('referral', 'User\DashboardController::referral');
 $routes->get('withdraw', 'User\DashboardController::withdraw');
 $routes->post('withdraw-request', 'User\DashboardController::faucetpay');
